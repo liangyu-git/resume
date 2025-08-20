@@ -38,7 +38,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center space-y-8"
+            className="text-center space-y-8 pb-16 md:pb-8"
           >
             {/* Professional Badge */}
             <motion.div
@@ -135,16 +135,16 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden md:block"
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-sm text-muted-foreground">Explore my work</span>
+            <span className="text-xs text-muted-foreground">Explore my work</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center"
+              className="w-5 h-8 border-2 border-muted-foreground/30 rounded-full flex justify-center"
             >
-              <div className="w-1.5 h-3 bg-muted-foreground/50 rounded-full mt-2" />
+              <div className="w-1 h-2 bg-muted-foreground/50 rounded-full mt-1.5" />
             </motion.div>
           </div>
         </motion.div>
