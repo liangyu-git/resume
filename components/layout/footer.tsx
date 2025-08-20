@@ -1,12 +1,16 @@
 import Link from 'next/link'
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
+import { personalInfo } from '@/data/portfolio'
 
-const socialLinks = [
-  { href: 'https://github.com/liangyu-git', icon: Github, label: 'GitHub' },
-  { href: 'https://linkedin.com/in/liang-yu-sun', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'https://twitter.com/liangyusun_dev', icon: Twitter, label: 'Twitter' },
-  { href: 'mailto:bright880409@gmail.com', icon: Mail, label: 'Email' },
-]
+const getIconForPlatform = (platform: string) => {
+  const icons = {
+    github: Github,
+    linkedin: Linkedin,  
+    twitter: Twitter,
+    email: Mail
+  }
+  return icons[platform as keyof typeof icons] || Mail
+}
 
 export function Footer() {
   return (
@@ -15,21 +19,21 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-center md:text-left">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} LIANG-YU SUN. All rights reserved.
+              © {new Date().getFullYear()} {personalInfo.name.full}. All rights reserved.
             </p>
           </div>
           
           <div className="flex space-x-4">
-            {socialLinks.map((link) => {
-              const Icon = link.icon
+            {personalInfo.social.map((link) => {
+              const Icon = getIconForPlatform(link.platform)
               return (
                 <Link
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
+                  key={link.platform}
+                  href={link.url}
+                  target={link.platform !== 'email' ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label={link.label}
+                  aria-label={`Visit ${link.platform} profile`}
                 >
                   <Icon className="h-5 w-5" />
                 </Link>

@@ -6,13 +6,9 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-const navItems = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
+import { navigationItems, personalInfo } from '@/data/portfolio'
+
+const navItems = navigationItems
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -54,7 +50,7 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold">
-              LYS
+              {personalInfo.name.initials}
             </Link>
           </div>
 
