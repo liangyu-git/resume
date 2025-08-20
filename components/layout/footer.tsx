@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
 
 const socialLinks = [
-  { href: 'https://github.com/bright-sun', icon: Github, label: 'GitHub' },
-  { href: 'https://linkedin.com/in/bright-sun', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'https://twitter.com/bright_sun_dev', icon: Twitter, label: 'Twitter' },
-  { href: 'mailto:bright.sun@example.com', icon: Mail, label: 'Email' },
+  { href: 'https://github.com/liangyu-git', icon: Github, label: 'GitHub' },
+  { href: 'https://linkedin.com/in/liang-yu-sun', icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://twitter.com/liangyusun_dev', icon: Twitter, label: 'Twitter' },
+  { href: 'mailto:bright880409@gmail.com', icon: Mail, label: 'Email' },
 ]
 
 export function Footer() {
@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-center md:text-left">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Bright Sun. All rights reserved.
+              © {new Date().getFullYear()} LIANG-YU SUN. All rights reserved.
             </p>
           </div>
           

@@ -61,7 +61,7 @@ export default function HomePage() {
             >
               Hi, I'm{' '}
               <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                Bright Sun
+                Bright
               </span>
             </motion.h1>
 
@@ -104,7 +104,7 @@ export default function HomePage() {
               className="flex justify-center gap-4 pt-4"
             >
               <Link
-                href="https://github.com/bright-sun"
+                href="https://github.com/liangyu-git"
                 target="_blank"
                 className="p-3 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-105"
                 title="GitHub Profile"
@@ -112,7 +112,7 @@ export default function HomePage() {
                 <Github className="h-5 w-5" />
               </Link>
               <Link
-                href="https://linkedin.com/in/bright-sun"
+                href="https://linkedin.com/in/liang-yu-sun"
                 target="_blank"
                 className="p-3 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-105"
                 title="LinkedIn Profile"
@@ -120,7 +120,7 @@ export default function HomePage() {
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="mailto:bright.sun@example.com"
+                href="mailto:bright880409@gmail.com"
                 className="p-3 rounded-full bg-secondary hover:bg-secondary/80 transition-all hover:scale-105"
                 title="Send Email"
               >
@@ -177,8 +177,8 @@ export default function HomePage() {
             >
               <div className="prose prose-lg dark:prose-invert">
                 <p>
-                  As an AI and Computer Vision Engineer at Perfect Corp, I specialize in developing 
-                  cutting-edge machine learning solutions that bridge the gap between artificial 
+                  I'm <strong>LIANG-YU SUN</strong> (call me Bright), an AI and Computer Vision Engineer at Perfect Corp. 
+                  I specialize in developing cutting-edge machine learning solutions that bridge the gap between artificial 
                   intelligence and real-world applications.
                 </p>
                 <p>
@@ -555,7 +555,7 @@ export default function HomePage() {
                     <Mail className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">bright.sun@example.com</p>
+                      <p className="text-muted-foreground">bright880409@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -571,13 +571,13 @@ export default function HomePage() {
                   <h4 className="font-medium mb-4">Connect with me</h4>
                   <div className="flex gap-3">
                     <Button variant="outline" size="sm" asChild>
-                      <Link href="https://linkedin.com/in/bright-sun" target="_blank">
+                      <Link href="https://linkedin.com/in/liang-yu-sun" target="_blank">
                         <Linkedin className="w-4 h-4 mr-2" />
                         LinkedIn
                       </Link>
                     </Button>
                     <Button variant="outline" size="sm" asChild>
-                      <Link href="https://github.com/bright-sun" target="_blank">
+                      <Link href="https://github.com/liangyu-git" target="_blank">
                         <Github className="w-4 h-4 mr-2" />
                         GitHub
                       </Link>

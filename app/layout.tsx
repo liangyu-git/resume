@@ -8,15 +8,15 @@ import { Footer } from '@/components/layout/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Bright Sun - AI & Computer Vision Engineer',
+  title: 'LIANG-YU SUN (Bright) - AI & Computer Vision Engineer',
   description: 'AI and Computer Vision Engineer at Perfect Corp, specializing in machine learning, deep learning, and computer vision technologies',
-  keywords: ['AI engineer', 'computer vision', 'machine learning', 'deep learning', 'Perfect Corp', 'software engineer', 'artificial intelligence'],
-  authors: [{ name: 'Bright Sun' }],
+  keywords: ['AI engineer', 'computer vision', 'machine learning', 'deep learning', 'Perfect Corp', 'software engineer', 'artificial intelligence', 'LIANG-YU SUN'],
+  authors: [{ name: 'LIANG-YU SUN' }],
   openGraph: {
-    title: 'Bright Sun - AI & Computer Vision Engineer',
+    title: 'LIANG-YU SUN (Bright) - AI & Computer Vision Engineer',
     description: 'AI and Computer Vision Engineer at Perfect Corp, specializing in machine learning, deep learning, and computer vision technologies',
-    url: 'https://brightsun.dev',
-    siteName: 'Bright Sun',
+    url: 'https://liangyusun.dev',
+    siteName: 'LIANG-YU SUN',
     images: [
       {
         url: '/og-image.png',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bright Sun - AI & Computer Vision Engineer',
+    title: 'LIANG-YU SUN (Bright) - AI & Computer Vision Engineer',
     description: 'AI and Computer Vision Engineer at Perfect Corp, specializing in machine learning and computer vision',
     images: ['/og-image.png'],
   },

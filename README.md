@@ -1,4 +1,4 @@
-# 🤖 Bright Sun - AI & Computer Vision Engineer Portfolio
+# 🤖 LIANG-YU SUN (Bright) - AI & Computer Vision Engineer Portfolio
 
 > Professional single-page portfolio website showcasing AI and Computer Vision expertise
 
@@ -9,7 +9,7 @@
 
 ## 🌟 Overview
 
-A modern, responsive portfolio website built for **Bright Sun**, an AI & Computer Vision Engineer at Perfect Corp. The site features a clean, professional single-page design that showcases technical expertise, projects, and experience without requiring navigation between multiple pages.
+A modern, responsive portfolio website built for **LIANG-YU SUN (Bright)**, an AI & Computer Vision Engineer at Perfect Corp. The site features a clean, professional single-page design that showcases technical expertise, projects, and experience without requiring navigation between multiple pages.
 
 **Live Demo**: [Coming Soon - Deploy to Vercel]
 
@@ -192,14 +192,14 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact
 
-**Bright Sun**
+**LIANG-YU SUN (Bright)**
 - Email: bright880409@gmail.com
 - GitHub: [@liangyu-git](https://github.com/liangyu-git)
-- LinkedIn: [Bright Sun](https://linkedin.com/in/bright-sun)
+- LinkedIn: [LIANG-YU SUN](https://linkedin.com/in/liang-yu-sun)
 
 ---
 
 <div align="center">
   <p>Built with ❤️ using Next.js 15 and modern web technologies</p>
-  <p>© 2025 Bright Sun. All rights reserved.</p>
+  <p>© 2025 LIANG-YU SUN. All rights reserved.</p>
 </div>
