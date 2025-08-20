@@ -58,7 +58,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
+          disableTransitionOnChange={false}
         >
           <div className="relative min-h-screen flex flex-col">
             <Navigation />
