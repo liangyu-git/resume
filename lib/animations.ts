@@ -1,4 +1,5 @@
 import { AnimationVariant } from '@/types/portfolio'
+import { Transition } from 'framer-motion'
 
 // Common animation variants for consistent motion design
 export const fadeInUp: AnimationVariant = {
@@ -57,10 +58,10 @@ export const createDelayedAnimation = (delay: number): AnimationVariant => ({
 export const progressBar = (width: string) => ({
   initial: { width: 0 },
   animate: { width },
-  transition: { duration: 1, ease: 'easeInOut' }
+  transition: { duration: 1, ease: 'easeInOut' as const }
 })
 
-// Blob animations
+// Blob animations with proper typing
 export const blobAnimation = {
   animate: {
     x: [0, 30, -20, 0],
@@ -70,6 +71,6 @@ export const blobAnimation = {
   transition: {
     duration: 7,
     repeat: Infinity,
-    ease: 'linear'
-  }
+    ease: 'linear' as const
+  } as Transition
 }
