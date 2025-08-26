@@ -259,8 +259,8 @@ This portfolio showcases professional development practices and serves as both a
 
 ### Priority 1: Critical Fixes ✅
 - [x] **Fix TypeScript Compilation Errors** - Fixed animation type issues with proper Framer Motion types
-- [ ] **Configure ESLint Properly** - Set up strict linting rules with Next.js best practices
-- [ ] **Add Environment Variables** - Create .env.example and validate configuration
+- [x] **Configure ESLint Properly** - Set up strict linting rules with Next.js best practices
+- [x] **Add Environment Variables** - Created .env.example with Zod validation and type safety
 
 ### Priority 2: Code Quality & DX
 - [ ] **Testing Infrastructure**
@@ -312,8 +312,13 @@ Working on Priority 1 & 2 items to establish a solid foundation for enterprise-g
 # Development
 pnpm dev              # Start development server
 pnpm type-check       # Check TypeScript compilation
-pnpm lint             # Run ESLint (needs configuration)
+pnpm lint             # Run ESLint with Prettier
+pnpm format           # Format code with Prettier
 pnpm build            # Production build
+
+# Environment
+pnpm env:setup        # Create .env.local from .env.example
+pnpm env:validate     # Validate environment variables
 
 # Testing (to be implemented)
 pnpm test             # Run unit tests

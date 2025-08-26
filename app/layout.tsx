@@ -4,19 +4,21 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Navigation } from '@/components/layout/navigation'
 import { Footer } from '@/components/layout/footer'
+import { config } from '@/lib/env'
+import { personalInfo } from '@/data/portfolio'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'LIANG-YU SUN (Bright) - AI & Computer Vision Engineer',
-  description: 'AI and Computer Vision Engineer at Perfect Corp, specializing in machine learning, deep learning, and computer vision technologies',
-  keywords: ['AI engineer', 'computer vision', 'machine learning', 'deep learning', 'Perfect Corp', 'software engineer', 'artificial intelligence', 'LIANG-YU SUN'],
-  authors: [{ name: 'LIANG-YU SUN' }],
+  title: `${personalInfo.name.full} (${personalInfo.name.casual}) - ${personalInfo.title}`,
+  description: config.app.description,
+  keywords: ['AI engineer', 'computer vision', 'machine learning', 'deep learning', 'Perfect Corp', 'software engineer', 'artificial intelligence', personalInfo.name.full],
+  authors: [{ name: personalInfo.name.full }],
   openGraph: {
-    title: 'LIANG-YU SUN (Bright) - AI & Computer Vision Engineer',
-    description: 'AI and Computer Vision Engineer at Perfect Corp, specializing in machine learning, deep learning, and computer vision technologies',
-    url: 'https://liangyusun.dev',
-    siteName: 'LIANG-YU SUN',
+    title: `${personalInfo.name.full} (${personalInfo.name.casual}) - ${personalInfo.title}`,
+    description: config.app.description,
+    url: config.app.url,
+    siteName: config.app.name,
     images: [
       {
         url: '/og-image.png',
@@ -29,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LIANG-YU SUN (Bright) - AI & Computer Vision Engineer',
-    description: 'AI and Computer Vision Engineer at Perfect Corp, specializing in machine learning and computer vision',
+    title: `${personalInfo.name.full} (${personalInfo.name.casual}) - ${personalInfo.title}`,
+    description: config.app.description,
     images: ['/og-image.png'],
   },
   robots: {
