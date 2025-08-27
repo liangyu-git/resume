@@ -1,6 +1,7 @@
 # LIANG-YU SUN (Bright) - Professional Portfolio
 
 ## Project Overview
+
 A modern, professional portfolio website built with enterprise-grade architecture. Features modular components, comprehensive TypeScript coverage, and maintainable code structure that demonstrates senior-level engineering skills.
 
 **Live Site**: http://localhost:3000 (Development)  
@@ -10,6 +11,7 @@ A modern, professional portfolio website built with enterprise-grade architectur
 ## 🏗️ Architecture & Tech Stack
 
 ### Core Technologies
+
 - **Framework**: Next.js 15 (App Router) - Latest stable with React 19
 - **Language**: TypeScript 5.9.2 - Full type coverage throughout
 - **Styling**: Tailwind CSS v3.4.17 - Professional design system
@@ -18,6 +20,7 @@ A modern, professional portfolio website built with enterprise-grade architectur
 - **Package Manager**: pnpm - Fast, efficient dependency management
 
 ### Modern Features
+
 - **Theme System**: Dark/light mode with smooth transitions
 - **Responsive Design**: Mobile-first approach, perfect on all devices
 - **Performance**: Optimized bundle, lazy loading, minimal re-renders
@@ -27,6 +30,7 @@ A modern, professional portfolio website built with enterprise-grade architectur
 ## 📁 Professional Architecture
 
 ### Directory Structure
+
 ```
 /
 ├── types/
@@ -61,18 +65,21 @@ A modern, professional portfolio website built with enterprise-grade architectur
 ### Key Architectural Decisions
 
 #### 1. **Separation of Concerns**
+
 - **Data Layer**: All content in `data/portfolio.ts` for easy updates
 - **Type Layer**: Complete TypeScript interfaces in `types/portfolio.ts`
 - **Component Layer**: Focused, single-responsibility components
 - **Presentation Layer**: Clean composition in main pages
 
 #### 2. **Component Design Philosophy**
+
 - **Modular**: Each section is an independent, reusable component
 - **Typed**: Full TypeScript props and interfaces
 - **Accessible**: ARIA labels, keyboard navigation, semantic HTML
 - **Performant**: Optimized animations, lazy loading where appropriate
 
 #### 3. **Error Handling Strategy**
+
 - **Error Boundaries**: Graceful failure recovery
 - **Form Validation**: Real-time feedback with user-friendly messages
 - **Loading States**: Professional UX during async operations
@@ -81,12 +88,14 @@ A modern, professional portfolio website built with enterprise-grade architectur
 ## 🎯 Business Value & Professional Benefits
 
 ### For Employers/Clients
+
 - **Demonstrates Senior Skills**: Enterprise-grade architecture patterns
 - **Maintainable Code**: Easy to understand, modify, and extend
 - **Professional UX**: Smooth animations, error handling, accessibility
 - **Modern Stack**: Latest technologies with best practices
 
 ### For Development
+
 - **Type Safety**: Comprehensive TypeScript prevents runtime errors
 - **Easy Content Updates**: Change info without touching code
 - **Component Reusability**: Sections can be reused across projects
@@ -95,13 +104,14 @@ A modern, professional portfolio website built with enterprise-grade architectur
 ## 🔧 Development Workflow
 
 ### Content Management
+
 ```typescript
 // Update personal info in data/portfolio.ts
 export const personalInfo: PersonalInfo = {
   name: {
     full: 'LIANG-YU SUN',
     casual: 'Bright',
-    initials: 'LYS'
+    initials: 'LYS',
   },
   title: 'AI & Computer Vision Engineer',
   company: 'Perfect Corp',
@@ -115,12 +125,13 @@ export const projects: Project[] = [
     title: 'My Latest AI Project',
     description: 'Revolutionary computer vision application...',
     technologies: ['Python', 'TensorFlow', 'OpenCV'],
-    featured: true
-  }
+    featured: true,
+  },
 ]
 ```
 
 ### Development Commands
+
 ```bash
 # Development
 pnpm dev              # Start development server (http://localhost:3000)
@@ -139,6 +150,7 @@ pnpm update           # Update all dependencies to latest
 ```
 
 ### Git Workflow
+
 ```bash
 # Feature development
 git checkout -b feature/new-section
@@ -156,6 +168,7 @@ git push origin main
 ## 🚀 Deployment Options
 
 ### Recommended: Vercel (Zero Configuration)
+
 ```bash
 # 1. Connect GitHub repository to Vercel
 # 2. Auto-deploy on every push to main
@@ -164,6 +177,7 @@ git push origin main
 ```
 
 ### Alternative: Netlify
+
 ```bash
 # Build settings:
 # Build command: pnpm build
@@ -171,6 +185,7 @@ git push origin main
 ```
 
 ### Self-Hosted
+
 ```bash
 pnpm build          # Generate optimized build
 pnpm start          # Serve with Node.js
@@ -182,12 +197,14 @@ serve out           # Serve static export
 ## 📈 Performance Metrics
 
 ### Current Lighthouse Scores (Target)
+
 - **Performance**: 95+ (optimized images, code splitting)
 - **Accessibility**: 100 (WCAG compliant, semantic HTML)
 - **Best Practices**: 100 (security headers, modern standards)
 - **SEO**: 100 (metadata, structured data, sitemap)
 
 ### Core Web Vitals
+
 - **LCP** (Largest Contentful Paint): < 1.2s
 - **FID** (First Input Delay): < 100ms
 - **CLS** (Cumulative Layout Shift): < 0.1
@@ -195,18 +212,21 @@ serve out           # Serve static export
 ## 🛠️ Maintenance & Extensions
 
 ### Adding New Sections
+
 1. Create component in `components/sections/[name].tsx`
 2. Define types in `types/portfolio.ts`
 3. Add data to `data/portfolio.ts`
 4. Import and use in `app/page.tsx`
 
 ### Updating Content
+
 - **Personal Info**: Modify `data/portfolio.ts`
 - **Projects**: Add to projects array
 - **Skills**: Update skills and proficiencies arrays
 - **Social Links**: Modify social array in personalInfo
 
 ### Styling Customization
+
 - **Colors**: Update CSS variables in `app/globals.css`
 - **Components**: Modify individual component styles
 - **Theme**: Adjust Tailwind config in `tailwind.config.ts`
@@ -214,11 +234,13 @@ serve out           # Serve static export
 ## 🔍 Code Quality Standards
 
 ### TypeScript Coverage: 100%
+
 - All components have proper interfaces
 - No `any` types used
 - Strict mode enabled with comprehensive checks
 
 ### Component Standards
+
 - Single Responsibility Principle
 - Proper error boundaries
 - Accessible by default
@@ -226,6 +248,7 @@ serve out           # Serve static export
 - Fully typed props
 
 ### Professional Patterns
+
 - Error handling at component level
 - Loading states for async operations
 - Form validation with user feedback
@@ -258,11 +281,13 @@ This portfolio showcases professional development practices and serves as both a
 ## 🚧 Professional Enhancement Roadmap
 
 ### Priority 1: Critical Fixes ✅
+
 - [x] **Fix TypeScript Compilation Errors** - Fixed animation type issues with proper Framer Motion types
 - [x] **Configure ESLint Properly** - Set up strict linting rules with Next.js best practices
 - [x] **Add Environment Variables** - Created .env.example with Zod validation and type safety
 
 ### Priority 2: Code Quality & DX
+
 - [x] **Testing Infrastructure**
   - [x] Set up Vitest for unit testing
   - [x] Add React Testing Library for component tests
@@ -277,6 +302,7 @@ This portfolio showcases professional development practices and serves as both a
   - [ ] Add bundle analyzer for optimization insights
 
 ### Priority 3: Production Readiness
+
 - [x] **CI/CD Pipeline**
   - [x] GitHub Actions for automated testing
   - [x] Lighthouse CI for performance monitoring
@@ -295,6 +321,7 @@ This portfolio showcases professional development practices and serves as both a
   - [ ] Run axe-core accessibility audit
 
 ### Priority 4: Architecture Enhancements
+
 - [ ] **Code Organization**
   - [ ] Create custom hooks for reusable logic
   - [ ] Implement service layer for API calls
@@ -306,9 +333,11 @@ This portfolio showcases professional development practices and serves as both a
   - [ ] Implement A/B testing framework
 
 ### Current Sprint Focus
+
 Working on Priority 1 & 2 items to establish a solid foundation for enterprise-grade development.
 
 ### Commands for Common Tasks
+
 ```bash
 # Development
 pnpm dev              # Start development server

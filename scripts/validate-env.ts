@@ -16,7 +16,7 @@ const envLocalPath = path.join(process.cwd(), '.env.local')
 if (!fs.existsSync(envLocalPath)) {
   console.error('❌ .env.local file not found!')
   console.log('📝 Creating .env.local from .env.example...')
-  
+
   if (fs.existsSync(envExamplePath)) {
     fs.copyFileSync(envExamplePath, envLocalPath)
     console.log('✅ .env.local created! Please update it with your values.')
@@ -44,7 +44,10 @@ try {
 // Check for missing optional but recommended variables
 const warnings: string[] = []
 
-if (!process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true') {
+if (
+  !process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID &&
+  process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true'
+) {
   warnings.push('Analytics is enabled but GA_MEASUREMENT_ID is not set')
 }
 
@@ -54,14 +57,18 @@ if (!process.env.SMTP_HOST && process.env.NEXT_PUBLIC_ENABLE_CONTACT_FORM === 't
 
 if (warnings.length > 0) {
   console.log('\n⚠️  Warnings:')
-  warnings.forEach(warning => console.log(`   - ${warning}`))
+  warnings.forEach((warning) => console.log(`   - ${warning}`))
 }
 
 console.log('\n📋 Current configuration:')
 console.log(`   - Environment: ${process.env.NODE_ENV}`)
 console.log(`   - App URL: ${process.env.NEXT_PUBLIC_APP_URL}`)
-console.log(`   - Analytics: ${process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true' ? 'Enabled' : 'Disabled'}`)
-console.log(`   - Contact Form: ${process.env.NEXT_PUBLIC_ENABLE_CONTACT_FORM === 'true' ? 'Enabled' : 'Disabled'}`)
+console.log(
+  `   - Analytics: ${process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true' ? 'Enabled' : 'Disabled'}`
+)
+console.log(
+  `   - Contact Form: ${process.env.NEXT_PUBLIC_ENABLE_CONTACT_FORM === 'true' ? 'Enabled' : 'Disabled'}`
+)
 console.log(`   - Blog: ${process.env.NEXT_PUBLIC_ENABLE_BLOG === 'true' ? 'Enabled' : 'Disabled'}`)
 
 console.log('\n✨ Environment validation complete!')

@@ -16,6 +16,7 @@ A modern, responsive portfolio website built for **LIANG-YU SUN (Bright)**, an A
 ## ✨ Features
 
 ### 🎨 Design & UX
+
 - **Single-page design** with smooth scrolling navigation
 - **Responsive layout** - Perfect on desktop, tablet, and mobile
 - **Dark/Light theme** switching with system preference detection
@@ -24,6 +25,7 @@ A modern, responsive portfolio website built for **LIANG-YU SUN (Bright)**, an A
 - **Mobile-first approach** with hamburger navigation
 
 ### 🏗️ Technical Stack
+
 - **Next.js 15** - Latest React framework with App Router
 - **React 19** - Latest React features and optimizations
 - **TypeScript** - Type-safe development
@@ -33,6 +35,7 @@ A modern, responsive portfolio website built for **LIANG-YU SUN (Bright)**, an A
 - **Next Themes** - Theme switching functionality
 
 ### 📱 Sections
+
 1. **Hero Section** - Eye-catching introduction with animated background
 2. **About & Experience** - Professional timeline and achievements
 3. **Skills & Technologies** - Comprehensive tech stack showcase
@@ -42,7 +45,8 @@ A modern, responsive portfolio website built for **LIANG-YU SUN (Bright)**, an A
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - pnpm (or npm/yarn)
 
 ### Installation
@@ -100,17 +104,20 @@ resume/
 ## 🎯 Key Features Explained
 
 ### Smart Navigation
+
 - **Active section highlighting** - Navigation updates based on scroll position
 - **Smooth scrolling** - Animated navigation to sections
 - **Mobile responsive** - Collapsible hamburger menu
 
 ### Performance Optimized
+
 - **Next.js 15 optimizations** - Latest performance improvements
 - **Image optimization** - Automatic WebP conversion and lazy loading
 - **Code splitting** - Automatic bundle optimization
 - **SEO ready** - Comprehensive meta tags and Open Graph
 
 ### Accessibility
+
 - **WCAG compliant** - Proper ARIA labels and keyboard navigation
 - **Screen reader friendly** - Semantic HTML structure
 - **Color contrast** - Meets accessibility standards
@@ -144,6 +151,7 @@ pnpm start
 ## 🛠️ Customization
 
 ### Content Updates
+
 - **Personal Information**: Update in `app/page.tsx`
 - **Social Links**: Modify in `components/layout/footer.tsx` and `app/page.tsx`
 - **Projects**: Add your projects in the projects array in `app/page.tsx`
@@ -151,26 +159,31 @@ pnpm start
 - **Experience**: Modify the timeline in the about section
 
 ### Styling
+
 - **Colors**: Update CSS variables in `app/globals.css`
 - **Fonts**: Modify font imports in `app/layout.tsx`
 - **Components**: Customize components in the `components/` directory
 
 ### Configuration
+
 - **Metadata**: Update SEO information in `app/layout.tsx`
 - **Site Config**: Modify settings in `next.config.mjs`
 
 ## 📊 Tech Stack Details
 
 ### Frontend Framework
+
 - **Next.js 15** - React framework with App Router
 - **React 19** - Latest React with concurrent features
 
 ### Styling & UI
+
 - **Tailwind CSS 3** - Utility-first CSS framework
 - **CSS Variables** - Custom properties for theming
 - **Framer Motion** - Animation library
 
 ### Development Tools
+
 - **TypeScript** - Static type checking
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
@@ -193,6 +206,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **LIANG-YU SUN (Bright)**
+
 - Email: bright880409@gmail.com
 - GitHub: [@liangyu-git](https://github.com/liangyu-git)
 - LinkedIn: [LIANG-YU SUN](https://linkedin.com/in/liang-yu-sun)
