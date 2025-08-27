@@ -76,12 +76,7 @@ export class ErrorBoundary extends Component<Props, State> {
 }
 
 // Simpler error fallback component
-export function ErrorFallback({
-  resetError,
-}: {
-  error?: Error
-  resetError?: () => void
-}) {
+export function ErrorFallback({ resetError }: { error?: Error; resetError?: () => void }) {
   return (
     <div className="flex items-center justify-center p-8 min-h-[200px]">
       <div className="text-center">

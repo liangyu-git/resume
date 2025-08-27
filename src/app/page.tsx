@@ -1,8 +1,8 @@
-import { Hero } from '@/components/sections/hero'
-import { About } from '@/components/sections/about'
-import { Skills } from '@/components/sections/skills'
-import { Projects } from '@/components/sections/projects'
-import { Contact } from '@/components/sections/contact'
+import { Hero } from '@/features/hero'
+import { About } from '@/features/about'
+import { Skills } from '@/features/skills'
+import { Projects } from '@/features/projects'
+import { Contact } from '@/features/contact'
 import {
   personalInfo,
   experiences,

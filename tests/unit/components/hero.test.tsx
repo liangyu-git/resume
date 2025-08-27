@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, createMockPersonalInfo } from '../../utils/test-utils'
-import { Hero } from '@/components/sections/hero'
+import { Hero } from '@/features/hero'
 
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
