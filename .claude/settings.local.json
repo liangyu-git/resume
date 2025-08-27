@@ -19,7 +19,8 @@
       "Bash(find:*)",
       "Bash(tree:*)",
       "Bash(pnpm build:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(pnmp:*)"
     ],
     "deny": [],
     "ask": []

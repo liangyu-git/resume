@@ -11,11 +11,7 @@ interface TechnicalProficiencyProps {
 
 export function TechnicalProficiency({ skillProficiencies }: TechnicalProficiencyProps) {
   return (
-    <motion.div
-      {...fadeInUp}
-      viewport={viewportOptions}
-      className="bg-card rounded-xl border p-8"
-    >
+    <motion.div {...fadeInUp} viewport={viewportOptions} className="bg-card rounded-xl border p-8">
       <h3 className="text-2xl font-bold mb-8 text-center">Technical Proficiency</h3>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-4">

@@ -33,7 +33,7 @@ export function Card({
   animate = false,
 }: CardProps) {
   const Component = animate ? motion.div : 'div'
-  
+
   return (
     <Component
       className={cn(

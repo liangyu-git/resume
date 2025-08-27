@@ -31,14 +31,14 @@ export class PortfolioService {
   }
 
   static getCurrentExperience(): Experience | null {
-    return experiences.find(exp => exp.current) || null
+    return experiences.find((exp) => exp.current) || null
   }
 
   static getExperiencesByDateRange(startYear: number, endYear?: number): Experience[] {
-    return experiences.filter(exp => {
+    return experiences.filter((exp) => {
       const start = new Date(exp.startDate).getFullYear()
       const end = exp.endDate ? new Date(exp.endDate).getFullYear() : new Date().getFullYear()
-      
+
       if (endYear) {
         return start >= startYear && end <= endYear
       }
@@ -52,7 +52,7 @@ export class PortfolioService {
   }
 
   static getAchievementByLabel(label: string): Achievement | null {
-    return achievements.find(achievement => achievement.label === label) || null
+    return achievements.find((achievement) => achievement.label === label) || null
   }
 
   // Skills
@@ -61,7 +61,7 @@ export class PortfolioService {
   }
 
   static getSkillsByCategory(category: string): Skill[] {
-    return skills.filter(skill => skill.category === category)
+    return skills.filter((skill) => skill.category === category)
   }
 
   static getSkillProficiencies(): SkillProficiency[] {
@@ -69,9 +69,7 @@ export class PortfolioService {
   }
 
   static getTopSkills(limit: number = 5): SkillProficiency[] {
-    return skillProficiencies
-      .sort((a, b) => b.level - a.level)
-      .slice(0, limit)
+    return skillProficiencies.sort((a, b) => b.level - a.level).slice(0, limit)
   }
 
   // Projects
@@ -80,24 +78,22 @@ export class PortfolioService {
   }
 
   static getFeaturedProjects(): Project[] {
-    return projects.filter(project => project.featured)
+    return projects.filter((project) => project.featured)
   }
 
   static getProjectsByTechnology(technology: string): Project[] {
-    return projects.filter(project => 
-      project.technologies.includes(technology)
-    )
+    return projects.filter((project) => project.technologies.includes(technology))
   }
 
   static getProjectById(id: string): Project | null {
-    return projects.find(project => project.id === id) || null
+    return projects.find((project) => project.id === id) || null
   }
 
   // Utility methods
   static getSkillsWithProficiency(): Array<Skill & { proficiency?: SkillProficiency }> {
-    return skills.map(skill => {
-      const proficiency = skillProficiencies.find(prof => 
-        skill.technologies.some(tech => prof.name.includes(tech))
+    return skills.map((skill) => {
+      const proficiency = skillProficiencies.find((prof) =>
+        skill.technologies.some((tech) => prof.name.includes(tech))
       )
       return { ...skill, proficiency }
     })
@@ -109,22 +105,25 @@ export class PortfolioService {
     experiences: Experience[]
   } {
     const lowercaseQuery = query.toLowerCase()
-    
+
     return {
-      skills: skills.filter(skill => 
-        skill.name.toLowerCase().includes(lowercaseQuery) ||
-        skill.description.toLowerCase().includes(lowercaseQuery) ||
-        skill.technologies.some(tech => tech.toLowerCase().includes(lowercaseQuery))
+      skills: skills.filter(
+        (skill) =>
+          skill.name.toLowerCase().includes(lowercaseQuery) ||
+          skill.description.toLowerCase().includes(lowercaseQuery) ||
+          skill.technologies.some((tech) => tech.toLowerCase().includes(lowercaseQuery))
       ),
-      projects: projects.filter(project =>
-        project.title.toLowerCase().includes(lowercaseQuery) ||
-        project.description.toLowerCase().includes(lowercaseQuery) ||
-        project.technologies.some(tech => tech.toLowerCase().includes(lowercaseQuery))
+      projects: projects.filter(
+        (project) =>
+          project.title.toLowerCase().includes(lowercaseQuery) ||
+          project.description.toLowerCase().includes(lowercaseQuery) ||
+          project.technologies.some((tech) => tech.toLowerCase().includes(lowercaseQuery))
       ),
-      experiences: experiences.filter(exp =>
-        exp.title.toLowerCase().includes(lowercaseQuery) ||
-        exp.company.toLowerCase().includes(lowercaseQuery) ||
-        exp.description.some(desc => desc.toLowerCase().includes(lowercaseQuery))
+      experiences: experiences.filter(
+        (exp) =>
+          exp.title.toLowerCase().includes(lowercaseQuery) ||
+          exp.company.toLowerCase().includes(lowercaseQuery) ||
+          exp.description.some((desc) => desc.toLowerCase().includes(lowercaseQuery))
       ),
     }
   }

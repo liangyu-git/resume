@@ -20,7 +20,7 @@ export function useIntersectionObserver(options: UseIntersectionObserverOptions 
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isElementIntersecting = entry.isIntersecting
-        
+
         if (!hasBeenVisible && isElementIntersecting) {
           setHasBeenVisible(true)
         }

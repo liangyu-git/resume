@@ -24,7 +24,7 @@ const backgroundClasses = {
 
 const sizeClasses = {
   sm: 'py-12',
-  md: 'py-16', 
+  md: 'py-16',
   lg: 'py-24',
 }
 
@@ -54,13 +54,9 @@ export function Section({
       <div className="container mx-auto max-w-7xl">
         {(title || subtitle) && (
           <HeaderContent {...headerProps} className="text-center mb-16">
-            {title && (
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">{title}</h2>
-            )}
+            {title && <h2 className="text-3xl sm:text-4xl font-bold mb-4">{title}</h2>}
             {subtitle && (
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                {subtitle}
-              </p>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{subtitle}</p>
             )}
           </HeaderContent>
         )}
