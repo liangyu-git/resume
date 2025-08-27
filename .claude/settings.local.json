@@ -11,7 +11,9 @@
       "Bash(pnpm dev:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(pnpm type-check:*)",
+      "Bash(pnpm test:*)"
     ],
     "deny": [],
     "ask": []

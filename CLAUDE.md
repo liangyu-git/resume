@@ -263,9 +263,9 @@ This portfolio showcases professional development practices and serves as both a
 - [x] **Add Environment Variables** - Created .env.example with Zod validation and type safety
 
 ### Priority 2: Code Quality & DX
-- [ ] **Testing Infrastructure**
-  - [ ] Set up Vitest for unit testing
-  - [ ] Add React Testing Library for component tests
+- [x] **Testing Infrastructure**
+  - [x] Set up Vitest for unit testing
+  - [x] Add React Testing Library for component tests
   - [ ] Implement Playwright for E2E testing
   - [ ] Achieve >80% code coverage
 - [ ] **Pre-commit Hooks**
@@ -320,8 +320,10 @@ pnpm build            # Production build
 pnpm env:setup        # Create .env.local from .env.example
 pnpm env:validate     # Validate environment variables
 
-# Testing (to be implemented)
-pnpm test             # Run unit tests
-pnpm test:e2e         # Run E2E tests
+# Testing
+pnpm test             # Run unit tests (watch mode)
+pnpm test:run         # Run tests once
+pnpm test:ui          # Open Vitest UI
 pnpm test:coverage    # Generate coverage report
+pnpm test:watch       # Watch mode for development
 ```
