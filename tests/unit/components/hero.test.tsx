@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, createMockPersonalInfo } from '../../utils/test-utils'
+import { render, screen } from '../../utils/test-utils'
 import { Hero } from '@/features/hero'
 
 // Mock framer-motion
@@ -15,25 +15,24 @@ vi.mock('framer-motion', () => ({
 }))
 
 describe('Hero Component', () => {
-  const mockPersonalInfo = createMockPersonalInfo()
-
   it('renders personal information correctly', () => {
-    render(<Hero personalInfo={mockPersonalInfo} />)
+    render(<Hero />)
 
     // Check name is displayed
     expect(screen.getByText(/Hi, I'm/)).toBeInTheDocument()
-    expect(screen.getByText(mockPersonalInfo.name.casual)).toBeInTheDocument()
+    expect(screen.getByText('Bright')).toBeInTheDocument()
 
     // Check bio is displayed
-    expect(screen.getByText(mockPersonalInfo.bio.short)).toBeInTheDocument()
+    expect(screen.getByText(/AI & Computer Vision Engineer crafting/)).toBeInTheDocument()
 
-    // Check title and company badge
-    expect(screen.getByText(new RegExp(mockPersonalInfo.title))).toBeInTheDocument()
-    expect(screen.getByText(new RegExp(mockPersonalInfo.company))).toBeInTheDocument()
+    // Check title and company badge - looking for the specific badge element
+    const badgeElement = document.querySelector('.bg-primary\\/10')
+    expect(badgeElement).toBeInTheDocument()
+    expect(badgeElement).toHaveTextContent('AI & Computer Vision Engineer @ Perfect Corp')
   })
 
   it('renders CTA buttons', () => {
-    render(<Hero personalInfo={mockPersonalInfo} />)
+    render(<Hero />)
 
     // Check for View My Work button text (may be split by icon)
     expect(screen.getByText(/View My Work/)).toBeInTheDocument()
@@ -43,7 +42,7 @@ describe('Hero Component', () => {
   })
 
   it('renders social links', () => {
-    render(<Hero personalInfo={mockPersonalInfo} />)
+    render(<Hero />)
 
     // Check if GitHub icon is rendered (based on our mock data)
     const githubIcon = document.querySelector('.lucide-github')
@@ -55,20 +54,20 @@ describe('Hero Component', () => {
   })
 
   it('has correct section id for navigation', () => {
-    const { container } = render(<Hero personalInfo={mockPersonalInfo} />)
+    const { container } = render(<Hero />)
     const section = container.querySelector('section#home')
     expect(section).toBeInTheDocument()
   })
 
   it('applies correct styling classes', () => {
-    const { container } = render(<Hero personalInfo={mockPersonalInfo} />)
+    const { container } = render(<Hero />)
 
     const section = container.querySelector('section')
     expect(section).toHaveClass('min-h-screen', 'flex', 'items-center', 'justify-center')
   })
 
   it('renders background decorations', () => {
-    const { container } = render(<Hero personalInfo={mockPersonalInfo} />)
+    const { container } = render(<Hero />)
 
     // Check for gradient background
     const gradientDiv = container.querySelector('.bg-gradient-to-br')

@@ -2,6 +2,8 @@
 // Barrel export for clean imports
 
 export { Hero } from './components/hero'
+export { HeroContainer } from './components/hero-container'
+export { HeroPresenter } from './components/hero-presenter'
 export { HeroBackground } from './components/hero-background'
 export { ProfessionalBadge } from './components/professional-badge'
 export { HeroCTA } from './components/hero-cta'

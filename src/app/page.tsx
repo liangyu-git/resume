@@ -15,7 +15,7 @@ import {
 export default function HomePage() {
   return (
     <div className="relative">
-      <Hero personalInfo={personalInfo} />
+      <Hero />
       <About personalInfo={personalInfo} experiences={experiences} achievements={achievements} />
       <Skills skills={skills} skillProficiencies={skillProficiencies} />
       <Projects projects={projects} />
