@@ -13,7 +13,9 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(pnpm type-check:*)",
-      "Bash(pnpm test:*)"
+      "Bash(pnpm test:*)",
+      "Bash(chmod:*)",
+      "Bash(pnpm lint:*)"
     ],
     "deny": [],
     "ask": []

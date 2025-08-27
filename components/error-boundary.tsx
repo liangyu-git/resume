@@ -81,7 +81,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
 // Simpler error fallback component
 export function ErrorFallback({ 
-  error, 
+  error: _error, 
   resetError 
 }: { 
   error?: Error

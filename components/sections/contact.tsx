@@ -79,7 +79,7 @@ export function Contact({ personalInfo }: ContactProps) {
         isSubmitted: true,
         data: { name: '', email: '', message: '' }
       }))
-    } catch (error) {
+    } catch (_error) {
       setFormState(prev => ({ 
         ...prev, 
         isSubmitting: false,

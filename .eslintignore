@@ -1,0 +1,10 @@
+.next
+node_modules
+.git
+coverage
+dist
+build
+out
+*.config.js
+*.config.mjs
+*.config.ts
