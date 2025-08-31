@@ -3,6 +3,7 @@
 ## Prerequisites
 
 Before deploying, ensure you have:
+
 - [x] All tests passing locally (`pnpm test:run`)
 - [x] Clean build (`pnpm build`)
 - [x] Environment variables configured
@@ -15,16 +16,19 @@ Before deploying, ensure you have:
 #### 1. Manual Deployment (Quick Start)
 
 1. **Install Vercel CLI**
+
    ```bash
    npm install -g vercel
    ```
 
 2. **Login to Vercel**
+
    ```bash
    vercel login
    ```
 
 3. **Deploy from project root**
+
    ```bash
    vercel
    ```
@@ -50,6 +54,7 @@ Before deploying, ensure you have:
    Add these in Vercel dashboard (Project Settings > Environment Variables):
 
    **Required:**
+
    ```
    NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app
    NEXT_PUBLIC_APP_NAME=Liang-Yu Sun Portfolio
@@ -58,6 +63,7 @@ Before deploying, ensure you have:
    ```
 
    **Optional:**
+
    ```
    NEXT_PUBLIC_ENABLE_ANALYTICS=true
    NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -106,6 +112,7 @@ Before deploying, ensure you have:
    - New site from Git > Choose your repository
 
 2. **Build Settings**
+
    ```
    Build command: pnpm build && pnpm export
    Publish directory: out
@@ -117,16 +124,19 @@ Before deploying, ensure you have:
 ### Option 3: Self-Hosted
 
 1. **Build Application**
+
    ```bash
    pnpm build
    ```
 
 2. **Start Production Server**
+
    ```bash
    pnpm start
    ```
 
 3. **Process Manager (PM2)**
+
    ```bash
    npm install -g pm2
    pm2 start "pnpm start" --name "portfolio"
@@ -139,7 +149,7 @@ Before deploying, ensure you have:
    server {
        listen 80;
        server_name your-domain.com;
-       
+
        location / {
            proxy_pass http://localhost:3000;
            proxy_http_version 1.1;
@@ -160,7 +170,7 @@ Our GitHub Actions workflow automatically:
 
 1. **Quality Checks**
    - ✅ Run ESLint and Prettier
-   - ✅ TypeScript type checking  
+   - ✅ TypeScript type checking
    - ✅ Run all 82 unit tests
    - ✅ Generate test coverage report
    - ✅ Build application
@@ -185,6 +195,7 @@ Our GitHub Actions workflow automatically:
 ### Lighthouse CI
 
 The CI pipeline automatically runs Lighthouse audits and reports:
+
 - Performance metrics
 - Accessibility compliance
 - SEO optimization
@@ -195,6 +206,7 @@ Configure `lighthouserc.js` for custom performance budgets.
 ### Analytics Setup
 
 1. **Google Analytics 4**
+
    ```
    NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
    NEXT_PUBLIC_ENABLE_ANALYTICS=true
@@ -217,6 +229,7 @@ Configure `lighthouserc.js` for custom performance budgets.
 ### Security Headers
 
 The `vercel.json` configuration includes:
+
 - X-Frame-Options: DENY
 - X-Content-Type-Options: nosniff
 - Referrer-Policy: strict-origin-when-cross-origin
@@ -225,6 +238,7 @@ The `vercel.json` configuration includes:
 ### Content Security Policy
 
 Add to `next.config.mjs` for enhanced security:
+
 ```javascript
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -232,7 +246,9 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: https:;
   font-src 'self';
-`.replace(/\s{2,}/g, ' ').trim()
+`
+  .replace(/\s{2,}/g, ' ')
+  .trim()
 ```
 
 ## Troubleshooting
@@ -240,6 +256,7 @@ const ContentSecurityPolicy = `
 ### Common Issues
 
 1. **Build Failures**
+
    ```bash
    # Clear cache and reinstall
    pnpm store prune
@@ -249,12 +266,14 @@ const ContentSecurityPolicy = `
    ```
 
 2. **Environment Variable Issues**
+
    ```bash
    # Validate environment
    pnpm env:validate
    ```
 
 3. **TypeScript Errors**
+
    ```bash
    # Type checking
    pnpm type-check
@@ -300,6 +319,7 @@ For deployment issues:
 ---
 
 🎯 **Target Performance Metrics**
+
 - Lighthouse Performance: 95+
 - First Contentful Paint: < 1.2s
 - Largest Contentful Paint: < 2.5s
