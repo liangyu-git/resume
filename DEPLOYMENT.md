@@ -145,6 +145,7 @@ Before deploying, ensure you have:
    ```
 
 4. **Reverse Proxy (Nginx)**
+
    ```nginx
    server {
        listen 80;
