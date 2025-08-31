@@ -10,6 +10,7 @@ import { personalInfo } from '@/config/portfolio'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(config.app.url),
   title: `${personalInfo.name.full} (${personalInfo.name.casual}) - ${personalInfo.title}`,
   description: config.app.description,
   keywords: [

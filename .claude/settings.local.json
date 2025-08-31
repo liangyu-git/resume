@@ -23,7 +23,9 @@
       "Bash(pnmp:*)",
       "Bash(pnpm vitest run:*)",
       "Bash(open:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(pnpm env:validate:*)",
+      "Bash(pnpm production:validate:*)"
     ],
     "deny": [],
     "ask": []

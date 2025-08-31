@@ -31,7 +31,7 @@ console.log('🔍 Validating environment variables...')
 
 try {
   // Import the env module to trigger validation
-  require('../lib/env')
+  require('../src/lib/env')
   console.log('✅ Environment variables are valid!')
 } catch (error) {
   console.error('❌ Environment validation failed!')
