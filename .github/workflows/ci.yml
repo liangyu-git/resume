@@ -33,12 +33,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Debug environment
-        run: |
-          echo "Node version: $(node --version)"
-          echo "npm version: $(npm --version)"
-          echo "pnpm version: $(pnpm --version)"
-          
       - name: Validate environment variables
         run: pnpm env:validate
         env:
