@@ -26,7 +26,10 @@
       "Bash(cat:*)",
       "Bash(pnpm env:validate:*)",
       "Bash(pnpm production:validate:*)",
-      "WebFetch(domain:resume-kappa-mocha.vercel.app)"
+      "WebFetch(domain:resume-kappa-mocha.vercel.app)",
+      "Bash(gh run list:*)",
+      "Bash(node:*)",
+      "Bash(NEXT_PUBLIC_APP_NAME=\"Test\" NEXT_PUBLIC_APP_DESCRIPTION=\"Test desc\" pnpm env:validate)"
     ],
     "deny": [],
     "ask": []

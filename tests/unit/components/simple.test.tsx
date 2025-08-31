@@ -13,13 +13,7 @@ describe('Utility Functions', () => {
 // Removed Portfolio Service tests - they are now in tests/unit/services/portfolio-service.test.ts
 
 // Test animations
-import {
-  fadeIn,
-  fadeInUp,
-  fadeInLeft,
-  scaleIn,
-  staggerContainer,
-} from '@/lib/animations'
+import { fadeIn, fadeInUp, fadeInLeft, scaleIn, staggerContainer } from '@/lib/animations'
 
 describe('Animation Variants', () => {
   it('should have fadeIn animation', () => {

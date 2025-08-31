@@ -9,18 +9,10 @@ import type { Skill, SkillProficiency } from '@/types/portfolio'
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }: any) => (
-      <div {...props}>{children}</div>
-    ),
-    h2: ({ children, ...props }: any) => (
-      <h2 {...props}>{children}</h2>
-    ),
-    h3: ({ children, ...props }: any) => (
-      <h3 {...props}>{children}</h3>
-    ),
-    span: ({ children, ...props }: any) => (
-      <span {...props}>{children}</span>
-    ),
+    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    h2: ({ children, ...props }: any) => <h2 {...props}>{children}</h2>,
+    h3: ({ children, ...props }: any) => <h3 {...props}>{children}</h3>,
+    span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
   },
   AnimatePresence: ({ children }: any) => children,
 }))

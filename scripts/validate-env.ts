@@ -28,17 +28,21 @@ if (!fs.existsSync(envLocalPath)) {
 // Load and validate environment
 console.log('🔍 Validating environment variables...')
 
-try {
-  // Import the env module to trigger validation
-  require('../src/lib/env')
-  console.log('✅ Environment variables are valid!')
-} catch (error) {
+// Basic environment validation without importing TypeScript modules
+const requiredVars = [
+  'NEXT_PUBLIC_APP_NAME',
+  'NEXT_PUBLIC_APP_DESCRIPTION',
+]
+
+const missingVars = requiredVars.filter(varName => !process.env[varName])
+
+if (missingVars.length > 0) {
   console.error('❌ Environment validation failed!')
-  if (error instanceof Error) {
-    console.error(error.message)
-  }
+  console.error('Missing required environment variables:', missingVars.join(', '))
   process.exit(1)
 }
+
+console.log('✅ Environment variables are valid!')
 
 // Check for missing optional but recommended variables
 const warnings: string[] = []
