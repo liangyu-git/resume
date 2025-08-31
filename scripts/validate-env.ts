@@ -29,12 +29,9 @@ if (!fs.existsSync(envLocalPath)) {
 console.log('🔍 Validating environment variables...')
 
 // Basic environment validation without importing TypeScript modules
-const requiredVars = [
-  'NEXT_PUBLIC_APP_NAME',
-  'NEXT_PUBLIC_APP_DESCRIPTION',
-]
+const requiredVars = ['NEXT_PUBLIC_APP_NAME', 'NEXT_PUBLIC_APP_DESCRIPTION']
 
-const missingVars = requiredVars.filter(varName => !process.env[varName])
+const missingVars = requiredVars.filter((varName) => !process.env[varName])
 
 if (missingVars.length > 0) {
   console.error('❌ Environment validation failed!')

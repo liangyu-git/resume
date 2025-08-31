@@ -29,7 +29,8 @@
       "WebFetch(domain:resume-kappa-mocha.vercel.app)",
       "Bash(gh run list:*)",
       "Bash(node:*)",
-      "Bash(NEXT_PUBLIC_APP_NAME=\"Test\" NEXT_PUBLIC_APP_DESCRIPTION=\"Test desc\" pnpm env:validate)"
+      "Bash(NEXT_PUBLIC_APP_NAME=\"Test\" NEXT_PUBLIC_APP_DESCRIPTION=\"Test desc\" pnpm env:validate)",
+      "Bash(env:*)"
     ],
     "deny": [],
     "ask": []
