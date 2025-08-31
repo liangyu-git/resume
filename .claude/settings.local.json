@@ -20,7 +20,10 @@
       "Bash(tree:*)",
       "Bash(pnpm build:*)",
       "Bash(git log:*)",
-      "Bash(pnmp:*)"
+      "Bash(pnmp:*)",
+      "Bash(pnpm vitest run:*)",
+      "Bash(open:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
