@@ -9,10 +9,18 @@ import type { Skill, SkillProficiency } from '@/types/portfolio'
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <div {...props}>{children}</div>,
-    h2: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <h2 {...props}>{children}</h2>,
-    h3: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <h3 {...props}>{children}</h3>,
-    span: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <span {...props}>{children}</span>,
+    div: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <div {...props}>{children}</div>
+    ),
+    h2: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <h2 {...props}>{children}</h2>
+    ),
+    h3: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <h3 {...props}>{children}</h3>
+    ),
+    span: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <span {...props}>{children}</span>
+    ),
   },
   AnimatePresence: ({ children }: any) => children,
 }))
@@ -20,7 +28,11 @@ vi.mock('framer-motion', () => ({
 // Mock icon component since we're using dynamic icons
 vi.mock('@/features/skills/utils/icons', () => ({
   getIconComponent: (name: string) => {
-    return ({ className }: { className?: string }) => <div data-testid={`icon-${name}`} className={className}>{name} Icon</div>
+    return ({ className }: { className?: string }) => (
+      <div data-testid={`icon-${name}`} className={className}>
+        {name} Icon
+      </div>
+    )
   },
 }))
 
@@ -36,7 +48,7 @@ const mockSkills: Skill[] = [
   },
   {
     id: 'development',
-    category: 'development', 
+    category: 'development',
     name: 'Development',
     icon: 'Code2',
     description: 'Full-stack development, API design',
@@ -60,33 +72,18 @@ const mockSkillProficiencies: SkillProficiency[] = [
 describe('Skills Components', () => {
   describe('Skills', () => {
     it('should render the skills section', () => {
-      render(
-        <Skills
-          skills={mockSkills}
-          skillProficiencies={mockSkillProficiencies}
-        />
-      )
+      render(<Skills skills={mockSkills} skillProficiencies={mockSkillProficiencies} />)
       expect(screen.getByText(/Skills & Technologies/i)).toBeInTheDocument()
     })
 
     it('should render skill categories', () => {
-      render(
-        <Skills
-          skills={mockSkills}
-          skillProficiencies={mockSkillProficiencies}
-        />
-      )
+      render(<Skills skills={mockSkills} skillProficiencies={mockSkillProficiencies} />)
       expect(screen.getByText('Machine Learning')).toBeInTheDocument()
       expect(screen.getByText('Development')).toBeInTheDocument()
     })
 
     it('should render technical proficiency section', () => {
-      render(
-        <Skills
-          skills={mockSkills}
-          skillProficiencies={mockSkillProficiencies}
-        />
-      )
+      render(<Skills skills={mockSkills} skillProficiencies={mockSkillProficiencies} />)
       expect(screen.getByText('Technical Proficiency')).toBeInTheDocument()
     })
   })
@@ -101,7 +98,9 @@ describe('Skills Components', () => {
 
     it('should render description', () => {
       render(<SkillCard skill={mockSkill} index={0} />)
-      expect(screen.getByText('Deep learning, neural networks, model optimization')).toBeInTheDocument()
+      expect(
+        screen.getByText('Deep learning, neural networks, model optimization')
+      ).toBeInTheDocument()
     })
 
     it('should render all technologies', () => {
@@ -134,7 +133,7 @@ describe('Skills Components', () => {
   describe('ProficiencyBar', () => {
     const mockSkillItem = {
       name: 'Test Skill',
-      level: 75
+      level: 75,
     }
 
     it('should render skill name and level', () => {
@@ -154,7 +153,7 @@ describe('Skills Components', () => {
     it('should handle different skill levels', () => {
       const { rerender } = render(<ProficiencyBar skill={{ name: 'Low', level: 25 }} />)
       expect(screen.getByText('25%')).toBeInTheDocument()
-      
+
       rerender(<ProficiencyBar skill={{ name: 'High', level: 100 }} />)
       expect(screen.getByText('100%')).toBeInTheDocument()
     })

@@ -1,0 +1,60 @@
+            [33mtransition[39m=[32m"[object Object]"[39m
+            [33mviewport[39m=[32m"[object Object]"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"aspect-video bg-gradient-to-br from-primary/20 to-secondary/40 flex items-center justify-center"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33maria-label[39m=[32m"Project preview"[39m
+                [33mclass[39m=[32m"text-4xl opacity-50"[39m
+                [33mrole[39m=[32m"img"[39m
+              [36m>[39m
+                [0m🤖[0m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"p-6"[39m
+            [36m>[39m
+              [36m<h3[39m
+                [33mclass[39m=[32m"text-xl font-semibold mb-2 group-hover:text-primary transition-colors"[39m
+              [36m>[39m
+                [0mTest Project 3[0m
+              [36m</h3>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"text-muted-foreground text-sm mb-4 leading-relaxed"[39m
+              [36m>[39m
+                [0mDescription for test project 3[0m
+              [36m</p>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex flex-wrap gap-1 mb-4"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"px-2 py-1 bg-secondary rounded text-xs font-medium"[39m
+                [36m>[39m
+                  [0mVue[0m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"px-2 py-1 bg-secondary rounded text-xs font-medium"[39m
+                [36m>[39m
+                  [0mNuxt[0m
+                [36m</span>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"flex gap-2"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</section>[39m
+  [36m</div>[39m
+[36m</body>[39m
+   ✓ Projects Component > should handle projects without highlights 4ms
+   ✓ Projects Component > should handle empty projects array 1ms
+ ✓ tests/unit/lib/utils.test.ts (8 tests) 5ms
+
+ Test Files  5 failed | 3 passed (8)
+      Tests  24 failed | 59 passed (83)
+   Start at  09:14:20
+   Duration  2.30s (transform 421ms, setup 2.26s, collect 1.02s, tests 941ms, environment 4.41s, prepare 1.29s)
+

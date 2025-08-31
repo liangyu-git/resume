@@ -31,21 +31,21 @@ vi.mock('@/config/portfolio', () => ({
     { icon: 'Star', value: '5', label: 'Stars' },
   ],
   skills: [
-    { 
+    {
       id: 'machine-learning',
       category: 'machine-learning',
       name: 'Machine Learning',
       icon: 'Brain',
       description: 'Deep learning and neural networks',
-      technologies: ['TensorFlow', 'PyTorch']
+      technologies: ['TensorFlow', 'PyTorch'],
     },
-    { 
+    {
       id: 'development',
       category: 'development',
       name: 'Development',
       icon: 'Code',
       description: 'Full-stack development',
-      technologies: ['React', 'Node', 'Python']
+      technologies: ['React', 'Node', 'Python'],
     },
   ],
   skillProficiencies: [

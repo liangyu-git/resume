@@ -105,10 +105,7 @@ describe('About Components', () => {
   describe('ProfessionalSummary', () => {
     it('should render summary text', () => {
       render(
-        <ProfessionalSummary
-          personalInfo={mockPersonalInfo}
-          achievements={mockAchievements}
-        />
+        <ProfessionalSummary personalInfo={mockPersonalInfo} achievements={mockAchievements} />
       )
       expect(screen.getByText('Test paragraph 1')).toBeInTheDocument()
       expect(screen.getByText('Test paragraph 2')).toBeInTheDocument()
@@ -116,10 +113,7 @@ describe('About Components', () => {
 
     it('should render achievement cards', () => {
       render(
-        <ProfessionalSummary
-          personalInfo={mockPersonalInfo}
-          achievements={mockAchievements}
-        />
+        <ProfessionalSummary personalInfo={mockPersonalInfo} achievements={mockAchievements} />
       )
       expect(screen.getByText('5+')).toBeInTheDocument()
       expect(screen.getByText('20+')).toBeInTheDocument()

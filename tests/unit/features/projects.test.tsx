@@ -6,11 +6,21 @@ import type { Project } from '@/types/portfolio'
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <div {...props}>{children}</div>,
-    h2: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <h2 {...props}>{children}</h2>,
-    h3: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <h3 {...props}>{children}</h3>,
-    p: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <p {...props}>{children}</p>,
-    a: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => <a {...props}>{children}</a>,
+    div: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <div {...props}>{children}</div>
+    ),
+    h2: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <h2 {...props}>{children}</h2>
+    ),
+    h3: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <h3 {...props}>{children}</h3>
+    ),
+    p: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <p {...props}>{children}</p>
+    ),
+    a: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+      <a {...props}>{children}</a>
+    ),
   },
   AnimatePresence: ({ children }: any) => children,
 }))
@@ -114,11 +124,11 @@ describe('Projects Component', () => {
 
   it('should have correct attributes for external links', () => {
     render(<Projects projects={mockProjects} />)
-    const externalLinks = screen.getAllByRole('link').filter(link => 
-      link.getAttribute('href')?.startsWith('http')
-    )
-    
-    externalLinks.forEach(link => {
+    const externalLinks = screen
+      .getAllByRole('link')
+      .filter((link) => link.getAttribute('href')?.startsWith('http'))
+
+    externalLinks.forEach((link) => {
       expect(link).toHaveAttribute('target', '_blank')
       expect(link).toHaveAttribute('rel', 'noopener noreferrer')
     })
