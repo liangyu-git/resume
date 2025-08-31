@@ -31,7 +31,7 @@ vi.mock('next/navigation', () => ({
 
 // Mock Next.js Link component
 vi.mock('next/link', () => ({
-  default: vi.fn(({ children, href, ...props }: any) => {
+  default: vi.fn(({ children }: { children: React.ReactNode }) => {
     return children
   }),
 }))
@@ -75,7 +75,7 @@ global.ResizeObserver = vi.fn().mockImplementation(() => ({
 // Suppress console errors in tests
 const originalError = console.error
 beforeAll(() => {
-  console.error = (...args: any[]) => {
+  console.error = (...args: unknown[]) => {
     if (
       typeof args[0] === 'string' &&
       (args[0].includes('Warning: ReactDOM.render') ||

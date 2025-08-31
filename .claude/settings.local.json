@@ -25,7 +25,8 @@
       "Bash(open:*)",
       "Bash(cat:*)",
       "Bash(pnpm env:validate:*)",
-      "Bash(pnpm production:validate:*)"
+      "Bash(pnpm production:validate:*)",
+      "WebFetch(domain:resume-kappa-mocha.vercel.app)"
     ],
     "deny": [],
     "ask": []

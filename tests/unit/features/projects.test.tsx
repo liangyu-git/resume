@@ -6,19 +6,19 @@ import type { Project } from '@/types/portfolio'
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+    div: ({ children, ...props }: any) => (
       <div {...props}>{children}</div>
     ),
-    h2: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+    h2: ({ children, ...props }: any) => (
       <h2 {...props}>{children}</h2>
     ),
-    h3: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+    h3: ({ children, ...props }: any) => (
       <h3 {...props}>{children}</h3>
     ),
-    p: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+    p: ({ children, ...props }: any) => (
       <p {...props}>{children}</p>
     ),
-    a: ({ children, whileInView, viewport, initial, animate, transition, ...props }: any) => (
+    a: ({ children, ...props }: any) => (
       <a {...props}>{children}</a>
     ),
   },

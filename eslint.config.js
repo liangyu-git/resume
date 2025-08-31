@@ -6,7 +6,6 @@ const prettierConfig = require('eslint-config-prettier')
 module.exports = [
   js.configs.recommended,
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
     ignores: [
       '.next/**',
       'node_modules/**',
@@ -16,6 +15,21 @@ module.exports = [
       'build/**',
       'out/**',
     ],
+  },
+  {
+    files: ['next.config.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        require: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+      },
+    },
+  },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -66,6 +80,12 @@ module.exports = [
     files: ['**/*.test.{js,jsx,ts,tsx}', '**/*.spec.{js,jsx,ts,tsx}'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
+      'no-console': 'off',
+    },
+  },
+  {
+    files: ['scripts/**/*.{js,ts}'],
+    rules: {
       'no-console': 'off',
     },
   },

@@ -37,8 +37,8 @@ jobs:
         run: pnpm env:validate
         env:
           NEXT_PUBLIC_APP_URL: https://resume-kappa-mocha.vercel.app
-          NEXT_PUBLIC_APP_NAME: "Liang-Yu Sun Portfolio"
-          NEXT_PUBLIC_APP_DESCRIPTION: "AI & Computer Vision Engineer Portfolio"
+          NEXT_PUBLIC_APP_NAME: 'Liang-Yu Sun Portfolio'
+          NEXT_PUBLIC_APP_DESCRIPTION: 'AI & Computer Vision Engineer Portfolio'
           NEXT_PUBLIC_ENABLE_ANALYTICS: false
           NEXT_PUBLIC_ENABLE_CONTACT_FORM: true
           NEXT_PUBLIC_ENABLE_BLOG: false
@@ -68,8 +68,8 @@ jobs:
         env:
           NODE_ENV: production
           NEXT_PUBLIC_APP_URL: https://resume-kappa-mocha.vercel.app
-          NEXT_PUBLIC_APP_NAME: "Liang-Yu Sun Portfolio"
-          NEXT_PUBLIC_APP_DESCRIPTION: "AI & Computer Vision Engineer Portfolio"
+          NEXT_PUBLIC_APP_NAME: 'Liang-Yu Sun Portfolio'
+          NEXT_PUBLIC_APP_DESCRIPTION: 'AI & Computer Vision Engineer Portfolio'
           NEXT_PUBLIC_ENABLE_ANALYTICS: false
           NEXT_PUBLIC_ENABLE_CONTACT_FORM: true
           NEXT_PUBLIC_ENABLE_BLOG: false

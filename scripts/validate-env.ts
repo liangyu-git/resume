@@ -5,7 +5,6 @@
  * Run this to validate your environment configuration
  */
 
-import { z } from 'zod'
 import * as fs from 'fs'
 import * as path from 'path'
 

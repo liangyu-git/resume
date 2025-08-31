@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
 import { cn } from '@/lib/utils'
 
 // Simple unit tests for functions
@@ -18,7 +17,6 @@ import {
   fadeIn,
   fadeInUp,
   fadeInLeft,
-  fadeInRight,
   scaleIn,
   staggerContainer,
 } from '@/lib/animations'

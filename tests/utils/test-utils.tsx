@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
-import { ThemeProvider } from '@/components/theme-provider'
 
 // Mock next-themes to avoid matchMedia issues
 import { vi } from 'vitest'
