@@ -5,11 +5,27 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: false
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - preview
+      skip_tests:
+        description: 'Skip tests and run only deployment'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   quality-checks:
     name: Code Quality & Tests
     runs-on: ubuntu-latest
+    if: github.event.inputs.skip_tests != 'true'
 
     strategy:
       matrix:
@@ -78,7 +94,7 @@ jobs:
     name: Lighthouse Performance
     runs-on: ubuntu-latest
     needs: quality-checks
-    if: github.ref == 'refs/heads/main'
+    if: (github.ref == 'refs/heads/main') && (github.event.inputs.skip_tests != 'true')
 
     steps:
       - name: Checkout code
@@ -122,6 +138,7 @@ jobs:
     name: Security Audit
     runs-on: ubuntu-latest
     needs: quality-checks
+    if: github.event.inputs.skip_tests != 'true'
 
     steps:
       - name: Checkout code
@@ -156,7 +173,7 @@ jobs:
     name: Deploy to Production
     runs-on: ubuntu-latest
     needs: [quality-checks, security]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || (github.event_name == 'workflow_dispatch' && github.event.inputs.skip_tests != 'true')
     environment: production
 
     steps:
@@ -194,5 +211,48 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+          vercel-args: ${{ github.event.inputs.environment == 'preview' && '' || '--prod' }}
+          working-directory: ./
+
+  quick-deploy:
+    name: Quick Deploy (Manual Only)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.skip_tests == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        run: pnpm build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+          NEXT_PUBLIC_APP_NAME: ${{ secrets.NEXT_PUBLIC_APP_NAME }}
+          NEXT_PUBLIC_APP_DESCRIPTION: ${{ secrets.NEXT_PUBLIC_APP_DESCRIPTION }}
+          NEXT_PUBLIC_ENABLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_ENABLE_ANALYTICS }}
+          NEXT_PUBLIC_ENABLE_CONTACT_FORM: ${{ secrets.NEXT_PUBLIC_ENABLE_CONTACT_FORM }}
+          NEXT_PUBLIC_ENABLE_BLOG: ${{ secrets.NEXT_PUBLIC_ENABLE_BLOG }}
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: ${{ github.event.inputs.environment == 'preview' && '' || '--prod' }}
           working-directory: ./
