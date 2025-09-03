@@ -136,8 +136,9 @@ describe('Skills Components', () => {
 
     it('should render progress bar with correct structure', () => {
       const { container } = render(<ProficiencyBar skill={mockSkillItem} />)
-      const progressBarContainer = container.querySelector('.bg-secondary.rounded-full.h-2')
-      const progressBar = container.querySelector('.bg-primary.h-2.rounded-full')
+      // Look for the progress bar container and the actual bar by their structure
+      const progressBarContainer = container.querySelector('.rounded-full.h-3')
+      const progressBar = container.querySelector('.h-3.rounded-full.shadow-lg')
       expect(progressBarContainer).toBeInTheDocument()
       expect(progressBar).toBeInTheDocument()
     })

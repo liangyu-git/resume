@@ -25,10 +25,10 @@ describe('Hero Component', () => {
     // Check bio is displayed
     expect(screen.getByText(/AI & Computer Vision Engineer crafting/)).toBeInTheDocument()
 
-    // Check title and company badge - looking for the specific badge element
-    const badgeElement = document.querySelector('.bg-primary\\/10')
-    expect(badgeElement).toBeInTheDocument()
-    expect(badgeElement).toHaveTextContent('AI & Computer Vision Engineer @ Perfect Corp')
+    // Check title and company badge - looking for the badge text content
+    expect(screen.getByText('AI & Computer Vision Engineer')).toBeInTheDocument()
+    expect(screen.getByText('@')).toBeInTheDocument()
+    expect(screen.getByText('Perfect Corp')).toBeInTheDocument()
   })
 
   it('renders CTA buttons', () => {
