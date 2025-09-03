@@ -1,0 +1,87 @@
+/**
+ * Theme System CSS Variables
+ * Centralized color definitions for the theme system
+ */
+
+@layer base {
+
+:root {
+  /* Morning Sky Theme - Light Mode */
+  --background: 208 100% 97%;      /* Soft sky blue #F0F8FF - Alice Blue */
+  --foreground: 215 25% 27%;       /* Dawn text for contrast */
+  --card: 0 0% 100%;               /* Pure white clouds */
+  --card-foreground: 215 25% 27%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 25% 27%;
+  
+  /* Sky Palette */
+  --primary: 207 44% 49%;          /* Dawn blue #4682B4 - Steel Blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 214 41% 78%;        /* Soft periwinkle #B0C4DE - Light Steel Blue */
+  --secondary-foreground: 215 25% 27%;
+  
+  /* Sky Contextual Colors */
+  --accent: 51 100% 50%;           /* Golden sunrise #FFD700 - Gold */
+  --accent-foreground: 215 25% 27%;
+  --success: 120 93% 79%;          /* Fresh morning mint #98FB98 - Pale Green */
+  --success-foreground: 215 25% 27%;
+  --warning: 39 100% 50%;          /* Warm sunrise orange #FFA500 */
+  --warning-foreground: 215 25% 27%;
+  
+  /* Sky Neutrals */
+  --muted: 210 40% 92%;            /* Light sky mist */
+  --muted-foreground: 215 15% 47%;
+  --destructive: 0 84% 60%;        /* Sunset coral */
+  --destructive-foreground: 0 0% 100%;
+  --border: 210 30% 88%;
+  --input: 210 35% 90%;
+  --ring: 207 44% 49%;
+  --radius: 0.75rem;
+
+  /* Sky Gradient System */
+  --gradient-primary: linear-gradient(135deg, hsl(207 44% 49%) 0%, hsl(214 41% 78%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(214 41% 78%) 0%, hsl(51 100% 50%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(207 44% 49%) 0%, hsl(214 41% 78%) 50%, hsl(51 100% 50%) 100%);
+  --gradient-sky: linear-gradient(180deg, hsl(208 100% 97%) 0%, hsl(214 41% 78%) 30%, hsl(207 44% 49%) 70%, hsl(51 100% 50%) 100%);
+}
+
+.dark {
+  /* Deep Sea Abyss Theme - Dark Mode */
+  --background: 225 39% 8%;        /* Abyssal black #0B1426 */
+  --foreground: 180 25% 88%;       /* Bioluminescent white */
+  --card: 225 30% 15%;             /* Dark depths #1B2951 */
+  --card-foreground: 180 25% 88%;
+  --popover: 225 30% 15%;
+  --popover-foreground: 180 25% 88%;
+  
+  /* Luminous Abyss Palette */
+  --primary: 195 100% 50%;         /* Electric blue #00BFFF - Deep Sky Blue */
+  --primary-foreground: 225 39% 8%;
+  --secondary: 174 72% 56%;        /* Aqua luminescence #40E0D0 - Turquoise */
+  --secondary-foreground: 225 39% 8%;
+  
+  /* Deep Sea Bioluminescence */
+  --accent: 180 100% 27%;          /* Bioluminescent teal #008B8B - Dark Cyan */
+  --accent-foreground: 180 25% 88%;
+  --success: 160 100% 75%;         /* Sea foam glow #7FFFD4 - Aquamarine */
+  --success-foreground: 225 39% 8%;
+  --warning: 43 74% 49%;           /* Deep amber glow #DAA520 - Goldenrod */
+  --warning-foreground: 225 39% 8%;
+  
+  /* Abyss Neutrals */
+  --muted: 225 25% 18%;            /* Deep current */
+  --muted-foreground: 180 15% 65%;
+  --destructive: 0 65% 60%;        /* Deep coral warning */
+  --destructive-foreground: 180 25% 88%;
+  --border: 225 20% 20%;
+  --input: 225 25% 18%;
+  --ring: 195 100% 50%;
+
+  /* Abyss Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(174 72% 56%) 100%);
+  --gradient-secondary: linear-gradient(135deg, hsl(174 72% 56%) 0%, hsl(180 100% 27%) 100%);
+  --gradient-hero: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(174 72% 56%) 50%, hsl(180 100% 27%) 100%);
+  --gradient-sky: linear-gradient(0deg, hsl(225 39% 8%) 0%, hsl(225 30% 15%) 30%, hsl(195 100% 50%) 70%, hsl(174 72% 56%) 100%);
+}
+
+}
