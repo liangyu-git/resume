@@ -4,6 +4,7 @@ import '@/styles/globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Navigation } from '@/components/layout/navigation'
 import { Footer } from '@/components/layout/footer'
+import { ThemeAtmosphere } from '@/components/theme-atmosphere'
 import { config } from '@/lib/env'
 import { personalInfo } from '@/config/portfolio'
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange={false}
         >
+          <ThemeAtmosphere />
           <div className="relative min-h-screen flex flex-col">
             <Navigation />
             <main className="flex-1">{children}</main>

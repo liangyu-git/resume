@@ -1,79 +1,138 @@
+/**
+ * Main CSS Entry Point
+ * Professional theme system with modular organization
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Theme System CSS Variables */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    /* Morning Sky Theme - Light Mode */
+    --background: 208 100% 97%;      /* Soft sky blue #F0F8FF - Alice Blue */
+    --foreground: 215 25% 27%;       /* Dawn text for contrast */
+    --card: 0 0% 100%;               /* Pure white clouds */
+    --card-foreground: 215 25% 27%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 0.5rem;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Sky Palette */
+    --primary: 207 44% 49%;          /* Dawn blue #4682B4 - Steel Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 214 41% 78%;        /* Soft periwinkle #B0C4DE - Light Steel Blue */
+    --secondary-foreground: 215 25% 27%;
+    
+    /* Sky Contextual Colors */
+    --accent: 51 100% 50%;           /* Golden sunrise #FFD700 - Gold */
+    --accent-foreground: 215 25% 27%;
+    --success: 120 93% 79%;          /* Fresh morning mint #98FB98 - Pale Green */
+    --success-foreground: 215 25% 27%;
+    --warning: 39 100% 50%;          /* Warm sunrise orange #FFA500 */
+    --warning-foreground: 215 25% 27%;
+    
+    /* Sky Neutrals */
+    --muted: 210 40% 92%;            /* Light sky mist */
+    --muted-foreground: 215 15% 47%;
+    --destructive: 0 84% 60%;        /* Sunset coral */
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 30% 88%;
+    --input: 210 35% 90%;
+    --ring: 207 44% 49%;
+    --radius: 0.75rem;
+
+    /* Sky Gradient System */
+    --gradient-primary: linear-gradient(135deg, hsl(207 44% 49%) 0%, hsl(214 41% 78%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(214 41% 78%) 0%, hsl(51 100% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(207 44% 49%) 0%, hsl(214 41% 78%) 50%, hsl(51 100% 50%) 100%);
+    --gradient-sky: linear-gradient(180deg, hsl(208 100% 97%) 0%, hsl(214 41% 78%) 30%, hsl(207 44% 49%) 70%, hsl(51 100% 50%) 100%);
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
-  }
-}
+    /* Deep Sea Abyss Theme - Dark Mode */
+    --background: 225 39% 8%;        /* Abyssal black #0B1426 */
+    --foreground: 180 25% 88%;       /* Bioluminescent white */
+    --card: 225 30% 15%;             /* Dark depths #1B2951 */
+    --card-foreground: 180 25% 88%;
+    --popover: 225 30% 15%;
+    --popover-foreground: 180 25% 88%;
+    
+    /* Luminous Abyss Palette */
+    --primary: 195 100% 50%;         /* Electric blue #00BFFF - Deep Sky Blue */
+    --primary-foreground: 225 39% 8%;
+    --secondary: 174 72% 56%;        /* Aqua luminescence #40E0D0 - Turquoise */
+    --secondary-foreground: 225 39% 8%;
+    
+    /* Deep Sea Bioluminescence */
+    --accent: 180 100% 27%;          /* Bioluminescent teal #008B8B - Dark Cyan */
+    --accent-foreground: 180 25% 88%;
+    --success: 160 100% 75%;         /* Sea foam glow #7FFFD4 - Aquamarine */
+    --success-foreground: 225 39% 8%;
+    --warning: 43 74% 49%;           /* Deep amber glow #DAA520 - Goldenrod */
+    --warning-foreground: 225 39% 8%;
+    
+    /* Abyss Neutrals */
+    --muted: 225 25% 18%;            /* Deep current */
+    --muted-foreground: 180 15% 65%;
+    --destructive: 0 65% 60%;        /* Deep coral warning */
+    --destructive-foreground: 180 25% 88%;
+    --border: 225 20% 20%;
+    --input: 225 25% 18%;
+    --ring: 195 100% 50%;
 
-@layer base {
+    /* Abyss Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(174 72% 56%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(174 72% 56%) 0%, hsl(180 100% 27%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(174 72% 56%) 50%, hsl(180 100% 27%) 100%);
+    --gradient-sky: linear-gradient(0deg, hsl(225 39% 8%) 0%, hsl(225 30% 15%) 30%, hsl(195 100% 50%) 70%, hsl(174 72% 56%) 100%);
+  }
+
+  /* Base Reset and Foundation */
   * {
     @apply border-border;
-    transition:
-      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      fill 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   html {
     scroll-behavior: smooth;
-    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   body {
     @apply bg-background text-foreground;
+    /* High performance theme transition */
+    transition: 
+      background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+}
+
+@layer components {
+  /* Performance optimized theme transitions */
+  .theme-transition-fast {
     transition:
-      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+      color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: background-color, border-color, color;
+  }
+
+  .theme-transition-smooth {
+    transition:
+      opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+  }
+
+  .theme-transition-color {
+    transition: 
+      fill 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+      stroke 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: fill, stroke;
   }
 }
 
 @layer utilities {
+  /* Theme System Keyframe Animations */
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
@@ -89,8 +148,96 @@
     }
   }
 
+  /* Sun Arc Animation - Sunrise to Sunset */
+  @keyframes sunArc {
+    0% {
+      transform: translate(-20px, 15px) rotate(0deg) scale(0.9);
+      filter: hue-rotate(0deg) brightness(0.8);
+    }
+    25% {
+      transform: translate(-10px, -5px) rotate(45deg) scale(1);
+      filter: hue-rotate(15deg) brightness(1);
+    }
+    50% {
+      transform: translate(0px, -15px) rotate(90deg) scale(1.1);
+      filter: hue-rotate(30deg) brightness(1.2);
+    }
+    75% {
+      transform: translate(10px, -5px) rotate(135deg) scale(1);
+      filter: hue-rotate(45deg) brightness(1);
+    }
+    100% {
+      transform: translate(20px, 15px) rotate(180deg) scale(0.9);
+      filter: hue-rotate(60deg) brightness(0.8);
+    }
+  }
+
+  /* Moon Arc Animation - Reverse journey */
+  @keyframes moonArc {
+    0% {
+      transform: translate(20px, 15px) rotate(180deg) scale(0.9);
+      filter: brightness(0.6) saturate(0.8);
+    }
+    25% {
+      transform: translate(10px, -5px) rotate(135deg) scale(1);
+      filter: brightness(0.8) saturate(0.9);
+    }
+    50% {
+      transform: translate(0px, -15px) rotate(90deg) scale(1.1);
+      filter: brightness(1) saturate(1);
+    }
+    75% {
+      transform: translate(-10px, -5px) rotate(45deg) scale(1);
+      filter: brightness(0.8) saturate(0.9);
+    }
+    100% {
+      transform: translate(-20px, 15px) rotate(0deg) scale(0.9);
+      filter: brightness(0.6) saturate(0.8);
+    }
+  }
+
+  /* Sky gradient transition */
+  @keyframes skyTransition {
+    0% {
+      background: linear-gradient(135deg, hsl(208 100% 97%) 0%, hsl(214 41% 78%) 50%, hsl(51 100% 50%) 100%);
+    }
+    25% {
+      background: linear-gradient(135deg, hsl(39 100% 85%) 0%, hsl(45 100% 70%) 50%, hsl(51 100% 50%) 100%);
+    }
+    50% {
+      background: linear-gradient(135deg, hsl(200 80% 60%) 0%, hsl(210 70% 50%) 50%, hsl(220 60% 40%) 100%);
+    }
+    75% {
+      background: linear-gradient(135deg, hsl(280 40% 30%) 0%, hsl(260 50% 25%) 50%, hsl(240 60% 20%) 100%);
+    }
+    100% {
+      background: linear-gradient(135deg, hsl(225 39% 8%) 0%, hsl(225 30% 15%) 50%, hsl(195 100% 50%) 100%);
+    }
+  }
+
+  /* Animation Utility Classes */
   .animate-blob {
     animation: blob 7s infinite;
+  }
+
+  .animate-sun-arc {
+    animation: sunArc 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-moon-arc {
+    animation: moonArc 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-sky-transition {
+    animation: skyTransition 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
   }
 
   .animation-delay-2000 {
@@ -101,13 +248,10 @@
     animation-delay: 4s;
   }
 
-  /* Enhanced theme transitions */
-  .theme-transition {
-    transition:
-      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Hardware acceleration hints */
+  .gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000;
   }
 }
