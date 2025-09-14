@@ -1,10 +1,11 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { 
-  useThemeTransition, 
+import {
+  useThemeTransition,
   useArcAnimation,
   sunVariants,
   moonVariants,
@@ -16,16 +17,46 @@ import {
  * Provides cinematic sun/moon arc animation during theme transitions
  */
 export function ThemeToggle() {
+  const [mounted, setMounted] = useState(false)
   const { theme, toggleTheme, isTransitioning } = useThemeTransition()
   const { arcState, startAnimation } = useArcAnimation()
-  
+
   const isDark = theme === 'dark'
-  
+
   const handleToggle = () => {
     toggleTheme()
     startAnimation(isDark ? 'sunrise' : 'sunset')
   }
-  
+
+  // Only render after mounting to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Show placeholder during SSR/initial hydration
+  if (!mounted) {
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        disabled
+        className={`
+          relative h-10 w-10 rounded-full
+          bg-gradient-to-br from-background/80 to-muted/60
+          backdrop-blur-sm border border-border/50
+          transition-all duration-200
+          ${THEME_CLASSES.gpuAccelerated}
+          overflow-hidden
+        `}
+        aria-label="Toggle theme"
+      >
+        <div className="relative z-10 flex items-center justify-center w-full h-full">
+          <div className="h-4 w-4" />
+        </div>
+      </Button>
+    )
+  }
+
   return (
     <Button
       variant="ghost"
@@ -33,12 +64,12 @@ export function ThemeToggle() {
       onClick={handleToggle}
       disabled={isTransitioning}
       className={`
-        relative h-10 w-10 rounded-full 
-        bg-gradient-to-br from-background/80 to-muted/60 
-        backdrop-blur-sm border border-border/50 
-        hover:border-border hover:scale-105 
-        transition-all duration-200 
-        ${THEME_CLASSES.gpuAccelerated} 
+        relative h-10 w-10 rounded-full
+        bg-gradient-to-br from-background/80 to-muted/60
+        backdrop-blur-sm border border-border/50
+        hover:border-border hover:scale-105
+        transition-all duration-200
+        ${THEME_CLASSES.gpuAccelerated}
         overflow-hidden
       `}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -46,12 +77,12 @@ export function ThemeToggle() {
       <SkyBackground isTransitioning={isTransitioning} isDark={isDark} />
       <CelestialBody isDark={isDark} isAnimating={arcState.isAnimating} />
       <TransitionGlow isVisible={isTransitioning} />
-      
+
       <span className="sr-only">
-        {isTransitioning 
-          ? 'Switching theme...' 
-          : isDark 
-            ? 'Switch to light mode' 
+        {isTransitioning
+          ? 'Switching theme...'
+          : isDark
+            ? 'Switch to light mode'
             : 'Switch to dark mode'
         }
       </span>
