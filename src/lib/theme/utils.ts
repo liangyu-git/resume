@@ -22,7 +22,7 @@ export function getSkillCategoryColors(
 ): CategoryColorMap {
   const opacity = isDark ? '30' : '25'
   const hoverOpacity = isDark ? '50' : '40'
-  
+
   const colorMappings: Record<SkillCategory, CategoryColorMap> = {
     'machine-learning': {
       category: 'machine-learning',
@@ -34,7 +34,17 @@ export function getSkillCategoryColors(
         gradient: `from-primary/12 to-primary/20`,
       },
     },
-    'development': {
+    'computer-vision': {
+      category: 'computer-vision',
+      colors: {
+        base: `warning/${opacity}`,
+        hover: `warning/${hoverOpacity}`,
+        border: `warning/${isDark ? '40' : '30'}`,
+        text: 'warning',
+        gradient: `from-warning/12 to-warning/20`,
+      },
+    },
+    development: {
       category: 'development',
       colors: {
         base: `secondary/${opacity}`,
@@ -44,7 +54,7 @@ export function getSkillCategoryColors(
         gradient: `from-secondary/12 to-secondary/20`,
       },
     },
-    'tools': {
+    tools: {
       category: 'tools',
       colors: {
         base: `accent/${isDark ? '40' : '25'}`,
@@ -65,7 +75,7 @@ export function getSkillCategoryColors(
       },
     },
   }
-  
+
   return colorMappings[category]
 }
 
@@ -77,10 +87,10 @@ export function getProjectCategoryColors(
   isDark: boolean = false
 ): CategoryColorMap {
   const techStr = technologies.join(' ').toLowerCase()
-  
+
   // Determine category based on technologies
   let category: ProjectCategory = 'other'
-  
+
   if (techStr.match(/python|tensorflow|pytorch|opencv|ml|ai/)) {
     category = 'ai-ml'
   } else if (techStr.match(/react|next|vue|angular|frontend/)) {
@@ -90,15 +100,15 @@ export function getProjectCategoryColors(
   } else if (techStr.match(/docker|kubernetes|aws|cloud|devops/)) {
     category = 'devops'
   }
-  
+
   const categoryColorMap: Record<ProjectCategory, CategoryColorMap> = {
     'ai-ml': getSkillCategoryColors('machine-learning', isDark),
-    'frontend': getSkillCategoryColors('development', isDark),
-    'backend': getSkillCategoryColors('soft-skills', isDark),
-    'devops': getSkillCategoryColors('tools', isDark),
-    'other': getSkillCategoryColors('machine-learning', isDark),
+    frontend: getSkillCategoryColors('development', isDark),
+    backend: getSkillCategoryColors('soft-skills', isDark),
+    devops: getSkillCategoryColors('tools', isDark),
+    other: getSkillCategoryColors('machine-learning', isDark),
   }
-  
+
   return categoryColorMap[category]
 }
 
@@ -107,12 +117,12 @@ export function getProjectCategoryColors(
  */
 export function getProjectIcon(technologies: string[]): string {
   const techStr = technologies.join(' ').toLowerCase()
-  
+
   if (techStr.match(/python|tensorflow|pytorch|opencv|ml|ai/)) return '🧠'
   if (techStr.match(/react|next|vue|angular|frontend/)) return '⚛️'
   if (techStr.match(/node|express|django|backend|api/)) return '🚀'
   if (techStr.match(/docker|kubernetes|aws|cloud|devops/)) return '☁️'
-  
+
   return '💡'
 }
 
@@ -128,25 +138,22 @@ export function buildThemeClasses(
   } = {}
 ): string {
   const classes = [base]
-  
+
   if (options.isTransitioning) {
     classes.push(THEME_CLASSES.transitioning)
   }
-  
+
   if (options.useGPU) {
     classes.push(THEME_CLASSES.gpuAccelerated)
   }
-  
+
   return classes.filter(Boolean).join(' ')
 }
 
 /**
  * Calculate transition duration based on user preferences
  */
-export function getTransitionDuration(
-  base: number,
-  reducedMotion: boolean
-): number {
+export function getTransitionDuration(base: number, reducedMotion: boolean): number {
   if (reducedMotion) {
     return Math.min(base * 0.2, 100) // Much faster for reduced motion
   }
@@ -158,7 +165,7 @@ export function getTransitionDuration(
  */
 export function prefersReducedMotion(): boolean {
   if (typeof window === 'undefined') return false
-  
+
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
   return mediaQuery.matches
 }
@@ -166,18 +173,18 @@ export function prefersReducedMotion(): boolean {
 /**
  * Debounce function for theme transitions
  */
- 
-export function debounce<T extends (...args: never[]) => unknown>(
+
+export function debounce<T extends (..._args: never[]) => unknown>(
   func: T,
   wait: number
-): (...args: Parameters<T>) => void {
+): (..._args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null = null
-  
-  return (...args: Parameters<T>) => {
+
+  return (..._args: Parameters<T>) => {
     if (timeout) clearTimeout(timeout)
-    
+
     timeout = setTimeout(() => {
-      func(...args)
+      func(..._args)
     }, wait)
   }
 }
@@ -187,7 +194,7 @@ export function debounce<T extends (...args: never[]) => unknown>(
  */
 export function generateCSSVariables(mode: ThemeMode): string {
   const colors = getColorScheme(mode)
-  
+
   return Object.entries(colors)
     .map(([key, value]) => `--color-${key}: ${value};`)
     .join('\n')
@@ -205,9 +212,9 @@ export function formatHSL(h: number, s: number, l: number): string {
  */
 export function parseHSL(hsl: string): { h: number; s: number; l: number } | null {
   const match = hsl.match(/hsl\((\d+)\s+(\d+)%\s+(\d+)%\)/)
-  
+
   if (!match) return null
-  
+
   return {
     h: parseInt(match[1]),
     s: parseInt(match[2]),
@@ -218,9 +225,18 @@ export function parseHSL(hsl: string): { h: number; s: number; l: number } | nul
 /**
  * Convert CategoryColorMap to legacy color format for components
  */
-export function convertToLegacyColors(categoryColorMap: CategoryColorMap) {
-  const { colors } = categoryColorMap
-  
+export function convertToLegacyColors(categoryColorMap: CategoryColorMap | undefined) {
+  // Provide default colors as fallback
+  const defaultColors = {
+    base: 'muted/25',
+    hover: 'muted/40',
+    border: 'muted/30',
+    text: 'muted-foreground',
+    gradient: 'from-muted/12 to-muted/20',
+  }
+
+  const colors = categoryColorMap?.colors || defaultColors
+
   return {
     iconBg: `bg-${colors.base} group-hover:bg-${colors.hover}`,
     iconColor: `text-${colors.text}`,

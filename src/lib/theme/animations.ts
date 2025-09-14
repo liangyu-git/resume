@@ -134,16 +134,20 @@ export const moonVariants: Variants = {
  */
 export const skyGradientVariants: Variants = {
   dawn: {
-    background: 'linear-gradient(135deg, hsl(39 100% 85%) 0%, hsl(45 100% 70%) 50%, hsl(51 100% 50%) 100%)',
+    background:
+      'linear-gradient(135deg, hsl(39 100% 85%) 0%, hsl(45 100% 70%) 50%, hsl(51 100% 50%) 100%)',
   },
   noon: {
-    background: 'linear-gradient(135deg, hsl(200 80% 60%) 0%, hsl(210 70% 50%) 50%, hsl(220 60% 40%) 100%)',
+    background:
+      'linear-gradient(135deg, hsl(200 80% 60%) 0%, hsl(210 70% 50%) 50%, hsl(220 60% 40%) 100%)',
   },
   dusk: {
-    background: 'linear-gradient(135deg, hsl(280 40% 30%) 0%, hsl(260 50% 25%) 50%, hsl(240 60% 20%) 100%)',
+    background:
+      'linear-gradient(135deg, hsl(280 40% 30%) 0%, hsl(260 50% 25%) 50%, hsl(240 60% 20%) 100%)',
   },
   night: {
-    background: 'linear-gradient(135deg, hsl(225 39% 8%) 0%, hsl(225 30% 15%) 50%, hsl(195 100% 50%) 100%)',
+    background:
+      'linear-gradient(135deg, hsl(225 39% 8%) 0%, hsl(225 30% 15%) 50%, hsl(195 100% 50%) 100%)',
   },
 }
 
@@ -280,7 +284,7 @@ export function fadeInDirection(
     left: { x: distance },
     right: { x: -distance },
   }
-  
+
   return {
     initial: {
       opacity: 0,

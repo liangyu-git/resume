@@ -4,28 +4,26 @@
  */
 
 @layer components {
+  /* Performance optimized theme transitions */
+  .theme-transition-fast {
+    transition:
+      background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+      color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: background-color, border-color, color;
+  }
 
-/* Performance optimized theme transitions */
-.theme-transition-fast {
-  transition:
-    background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
-    border-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
-    color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-  will-change: background-color, border-color, color;
-}
+  .theme-transition-smooth {
+    transition:
+      opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+  }
 
-.theme-transition-smooth {
-  transition:
-    opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  will-change: opacity, transform;
-}
-
-.theme-transition-color {
-  transition: 
-    fill 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    stroke 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  will-change: fill, stroke;
-}
-
+  .theme-transition-color {
+    transition:
+      fill 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+      stroke 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: fill, stroke;
+  }
 }

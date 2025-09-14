@@ -20,32 +20,37 @@ const getPlatformColors = (platform: string) => {
     case 'github':
       return {
         hoverColor: 'hover:text-primary',
-        bgGradient: 'group-hover:bg-gradient-to-r group-hover:from-primary/15 group-hover:to-primary/25',
-        shadow: 'group-hover:shadow-primary/25'
+        bgGradient:
+          'group-hover:bg-gradient-to-r group-hover:from-primary/15 group-hover:to-primary/25',
+        shadow: 'group-hover:shadow-primary/25',
       }
     case 'linkedin':
       return {
         hoverColor: 'hover:text-secondary',
-        bgGradient: 'group-hover:bg-gradient-to-r group-hover:from-secondary/15 group-hover:to-secondary/25',
-        shadow: 'group-hover:shadow-secondary/25'
+        bgGradient:
+          'group-hover:bg-gradient-to-r group-hover:from-secondary/15 group-hover:to-secondary/25',
+        shadow: 'group-hover:shadow-secondary/25',
       }
     case 'twitter':
       return {
         hoverColor: 'hover:text-accent',
-        bgGradient: 'group-hover:bg-gradient-to-r group-hover:from-accent/15 group-hover:to-accent/25',
-        shadow: 'group-hover:shadow-accent/25'
+        bgGradient:
+          'group-hover:bg-gradient-to-r group-hover:from-accent/15 group-hover:to-accent/25',
+        shadow: 'group-hover:shadow-accent/25',
       }
     case 'email':
       return {
         hoverColor: 'hover:text-success',
-        bgGradient: 'group-hover:bg-gradient-to-r group-hover:from-success/15 group-hover:to-success/25',
-        shadow: 'group-hover:shadow-success/25'
+        bgGradient:
+          'group-hover:bg-gradient-to-r group-hover:from-success/15 group-hover:to-success/25',
+        shadow: 'group-hover:shadow-success/25',
       }
     default:
       return {
         hoverColor: 'hover:text-primary',
-        bgGradient: 'group-hover:bg-gradient-to-r group-hover:from-primary/15 group-hover:to-primary/25',
-        shadow: 'group-hover:shadow-primary/25'
+        bgGradient:
+          'group-hover:bg-gradient-to-r group-hover:from-primary/15 group-hover:to-primary/25',
+        shadow: 'group-hover:shadow-primary/25',
       }
   }
 }
@@ -55,16 +60,16 @@ export function Footer() {
     <footer className="relative border-t bg-gradient-to-br from-background via-background to-background/95 backdrop-blur-sm">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 opacity-30" />
-      
+
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0"
         >
-          <motion.div 
+          <motion.div
             className="text-center md:text-left"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
@@ -77,7 +82,7 @@ export function Footer() {
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="flex space-x-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -87,7 +92,7 @@ export function Footer() {
             {personalInfo.social.map((link, index) => {
               const Icon = getIconForPlatform(link.platform)
               const colors = getPlatformColors(link.platform)
-              
+
               return (
                 <motion.div
                   key={link.platform}
@@ -106,10 +111,12 @@ export function Footer() {
                     aria-label={`Visit ${link.platform} profile`}
                   >
                     <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
-                    
+
                     {/* Dynamic background gradient */}
-                    <div className={`absolute inset-0 rounded-xl transition-all duration-300 opacity-0 ${colors.bgGradient} -z-10`} />
-                    
+                    <div
+                      className={`absolute inset-0 rounded-xl transition-all duration-300 opacity-0 ${colors.bgGradient} -z-10`}
+                    />
+
                     {/* Subtle glow effect */}
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </Link>

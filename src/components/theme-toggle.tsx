@@ -83,8 +83,7 @@ export function ThemeToggle() {
           ? 'Switching theme...'
           : isDark
             ? 'Switch to light mode'
-            : 'Switch to dark mode'
-        }
+            : 'Switch to dark mode'}
       </span>
     </Button>
   )
@@ -93,24 +92,19 @@ export function ThemeToggle() {
 /**
  * Sky background that changes during transitions
  */
-function SkyBackground({ 
-  isTransitioning, 
-  isDark 
-}: { 
-  isTransitioning: boolean
-  isDark: boolean 
-}) {
+function SkyBackground({ isTransitioning, isDark }: { isTransitioning: boolean; isDark: boolean }) {
   return (
-    <div 
+    <div
       className={`
         absolute inset-0 rounded-full transition-all duration-800 
-        ${isTransitioning 
-          ? THEME_CLASSES.animateSkyTransition
-          : isDark 
-            ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-            : 'bg-gradient-to-br from-sky-200 via-sky-100 to-amber-100'
+        ${
+          isTransitioning
+            ? THEME_CLASSES.animateSkyTransition
+            : isDark
+              ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
+              : 'bg-gradient-to-br from-sky-200 via-sky-100 to-amber-100'
         }
-      `} 
+      `}
     />
   )
 }
@@ -118,13 +112,7 @@ function SkyBackground({
 /**
  * Sun or Moon with optional decorations
  */
-function CelestialBody({ 
-  isDark, 
-  isAnimating 
-}: { 
-  isDark: boolean
-  isAnimating: boolean 
-}) {
+function CelestialBody({ isDark, isAnimating }: { isDark: boolean; isAnimating: boolean }) {
   return (
     <div className="relative z-10 flex items-center justify-center w-full h-full">
       <AnimatePresence mode="wait">
@@ -133,19 +121,17 @@ function CelestialBody({
             key="sun"
             variants={sunVariants}
             initial="initial"
-            animate={isAnimating ? "arc" : "animate"}
+            animate={isAnimating ? 'arc' : 'animate'}
             exit="exit"
             className="relative"
           >
-            <Sun 
+            <Sun
               className={`
                 h-4 w-4 text-amber-500 drop-shadow-sm 
                 ${THEME_CLASSES.gpuAccelerated}
               `}
               style={{
-                filter: isAnimating 
-                  ? 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.6))' 
-                  : undefined
+                filter: isAnimating ? 'drop-shadow(0 0 8px rgba(251, 191, 36, 0.6))' : undefined,
               }}
             />
             {!isAnimating && <SunRays />}
@@ -155,19 +141,17 @@ function CelestialBody({
             key="moon"
             variants={moonVariants}
             initial="initial"
-            animate={isAnimating ? "arc" : "animate"}
+            animate={isAnimating ? 'arc' : 'animate'}
             exit="exit"
             className="relative"
           >
-            <Moon 
+            <Moon
               className={`
                 h-4 w-4 text-slate-300 drop-shadow-sm 
                 ${THEME_CLASSES.gpuAccelerated}
               `}
               style={{
-                filter: isAnimating 
-                  ? 'drop-shadow(0 0 8px rgba(148, 163, 184, 0.6))' 
-                  : undefined
+                filter: isAnimating ? 'drop-shadow(0 0 8px rgba(148, 163, 184, 0.6))' : undefined,
               }}
             />
             {!isAnimating && <Stars />}
@@ -210,7 +194,7 @@ function Stars() {
  */
 function TransitionGlow({ isVisible }: { isVisible: boolean }) {
   if (!isVisible) return null
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}

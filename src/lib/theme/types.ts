@@ -93,7 +93,12 @@ export interface ThemeTransitionEvent {
 /**
  * Skill/Project category types
  */
-export type SkillCategory = 'machine-learning' | 'development' | 'tools' | 'soft-skills'
+export type SkillCategory =
+  | 'machine-learning'
+  | 'computer-vision'
+  | 'development'
+  | 'tools'
+  | 'soft-skills'
 export type ProjectCategory = 'ai-ml' | 'frontend' | 'backend' | 'devops' | 'other'
 
 /**

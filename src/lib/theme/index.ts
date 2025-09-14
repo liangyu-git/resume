@@ -84,8 +84,4 @@ export {
 } from './config'
 
 // Provider exports
-export {
-  ThemeProvider,
-  EnhancedThemeProvider,
-  useThemeConfig,
-} from './provider'
+export { ThemeProvider, EnhancedThemeProvider, useThemeConfig } from './provider'

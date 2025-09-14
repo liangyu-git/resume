@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
+import {
   useAtmosphericEffects,
   particleVariants,
   cloudVariants,
@@ -17,13 +17,13 @@ import {
  */
 export function ThemeAtmosphere() {
   const { theme, isVisible, effectsEnabled } = useAtmosphericEffects()
-  
+
   if (!effectsEnabled) return null
-  
+
   const isDark = theme === 'dark'
-  
+
   return (
-    <div 
+    <div
       className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{ zIndex: Z_INDEX.atmosphere }}
     >
@@ -43,10 +43,10 @@ export function ThemeAtmosphere() {
           />
         )}
       </AnimatePresence>
-      
+
       {/* Light mode effects */}
       {!isDark && isVisible && <LightModeEffects />}
-      
+
       {/* Dark mode effects */}
       {isDark && isVisible && <DarkModeEffects />}
     </div>
@@ -71,7 +71,7 @@ function LightModeEffects() {
         style={{ animationDelay: '5s' }}
         className="absolute top-40 right-0 w-24 h-12 bg-gradient-to-l from-white/15 to-transparent rounded-full blur-xl"
       />
-      
+
       {/* Sunbeam particles */}
       <SunbeamParticles />
     </>
@@ -86,7 +86,7 @@ function DarkModeEffects() {
     <>
       {/* Bioluminescent particles */}
       <BioluminescentParticles />
-      
+
       {/* Star field */}
       <StarField />
     </>
@@ -103,7 +103,7 @@ function SunbeamParticles() {
     { top: '60%', left: '40%', delay: 2, size: 'w-1 h-1' },
     { top: '30%', left: '85%', delay: 0.5, size: 'w-0.5 h-0.5' },
   ]
-  
+
   return (
     <>
       {particles.map((particle, index) => (
@@ -136,7 +136,7 @@ function BioluminescentParticles() {
     { bottom: '50%', right: '30%', color: 'secondary', delay: 2 },
     { bottom: '60%', left: '60%', color: 'accent', delay: 4 },
   ]
-  
+
   return (
     <>
       {particles.map((particle, index) => (

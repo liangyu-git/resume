@@ -16,7 +16,7 @@ export function SkillCard({ skill, index }: SkillCardProps) {
       variants={fadeInDirection('up', 30)}
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: '-100px' }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ scale: 1.02 }}
       className={`p-8 rounded-xl border bg-card hover:shadow-xl transition-all duration-300 group ${colors.borderColor} ${colors.gradient}`}
@@ -30,8 +30,8 @@ export function SkillCard({ skill, index }: SkillCardProps) {
       <div className="space-y-4">
         <div className="flex flex-wrap gap-2">
           {skill.technologies.map((tech) => (
-            <span 
-              key={tech} 
+            <span
+              key={tech}
               className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 ${colors.tagBg}`}
             >
               {tech}

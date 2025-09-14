@@ -4,21 +4,19 @@
  */
 
 @layer base {
+  * {
+    @apply border-border;
+  }
 
-* {
-  @apply border-border;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  @apply bg-background text-foreground;
-  /* High performance theme transition */
-  transition: 
-    background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-    color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
+  body {
+    @apply bg-background text-foreground;
+    /* High performance theme transition */
+    transition:
+      background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+      color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 }

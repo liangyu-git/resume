@@ -4,44 +4,42 @@
  */
 
 @layer utilities {
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
 
-.animate-blob {
-  animation: blob 7s infinite;
-}
+  .animate-sun-arc {
+    animation: sunArc 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
 
-.animate-sun-arc {
-  animation: sunArc 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
+  .animate-moon-arc {
+    animation: moonArc 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
 
-.animate-moon-arc {
-  animation: moonArc 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
+  .animate-sky-transition {
+    animation: skyTransition 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
 
-.animate-sky-transition {
-  animation: skyTransition 800ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
 
-.animation-delay-150 {
-  animation-delay: 150ms;
-}
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
 
-.animation-delay-300 {
-  animation-delay: 300ms;
-}
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
 
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Hardware acceleration hints */
-.gpu-accelerated {
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000;
-}
-
+  /* Hardware acceleration hints */
+  .gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
 }

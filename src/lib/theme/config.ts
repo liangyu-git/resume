@@ -75,7 +75,7 @@ export const DEFAULT_THEME_CONFIG: ThemeConfig = {
  */
 export function getThemeConfig(overrides?: Partial<ThemeConfig>): ThemeConfig {
   if (!overrides) return DEFAULT_THEME_CONFIG
-  
+
   return {
     ...DEFAULT_THEME_CONFIG,
     ...overrides,
@@ -137,40 +137,40 @@ export const THEME_CUSTOMIZATION = {
    */
   skyThemes: {
     dawn: {
-      primary: '39 100% 85%',     // Dawn orange
-      secondary: '45 100% 70%',   // Golden yellow
-      accent: '51 100% 50%',      // Bright gold
+      primary: '39 100% 85%', // Dawn orange
+      secondary: '45 100% 70%', // Golden yellow
+      accent: '51 100% 50%', // Bright gold
     },
     noon: {
-      primary: '200 80% 60%',     // Sky blue
-      secondary: '210 70% 50%',   // Deeper blue
-      accent: '220 60% 40%',      // Navy
+      primary: '200 80% 60%', // Sky blue
+      secondary: '210 70% 50%', // Deeper blue
+      accent: '220 60% 40%', // Navy
     },
     dusk: {
-      primary: '280 40% 30%',     // Purple
-      secondary: '260 50% 25%',   // Deep purple
-      accent: '240 60% 20%',      // Dark purple
+      primary: '280 40% 30%', // Purple
+      secondary: '260 50% 25%', // Deep purple
+      accent: '240 60% 20%', // Dark purple
     },
   },
-  
+
   /**
    * Sea theme variations
    */
   seaThemes: {
     shallow: {
-      primary: '174 72% 56%',     // Turquoise
-      secondary: '180 100% 27%',  // Teal
-      accent: '160 100% 75%',     // Aquamarine
+      primary: '174 72% 56%', // Turquoise
+      secondary: '180 100% 27%', // Teal
+      accent: '160 100% 75%', // Aquamarine
     },
     deep: {
-      primary: '195 100% 50%',    // Deep sky blue
-      secondary: '180 100% 40%',  // Dark cyan
-      accent: '174 100% 30%',     // Deep teal
+      primary: '195 100% 50%', // Deep sky blue
+      secondary: '180 100% 40%', // Dark cyan
+      accent: '174 100% 30%', // Deep teal
     },
     abyss: {
-      primary: '225 100% 25%',    // Very dark blue
-      secondary: '220 80% 15%',   // Almost black blue
-      accent: '200 60% 10%',      // Abyssal blue
+      primary: '225 100% 25%', // Very dark blue
+      secondary: '220 80% 15%', // Almost black blue
+      accent: '200 60% 10%', // Abyssal blue
     },
   },
 } as const
@@ -182,16 +182,16 @@ export function getEnvironmentConfig(): Partial<ThemeConfig> {
   if (typeof window === 'undefined') {
     return { performance: PERFORMANCE_PRESETS.balanced }
   }
-  
+
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  
+
   // Check for low-end devices (rough heuristic)
   const isLowEndDevice = navigator.hardwareConcurrency <= 4
-  
+
   if (prefersReducedMotion || isLowEndDevice) {
     return { performance: PERFORMANCE_PRESETS.low }
   }
-  
+
   return { performance: PERFORMANCE_PRESETS.high }
 }

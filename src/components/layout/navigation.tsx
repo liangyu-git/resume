@@ -55,8 +55,8 @@ export function Navigation() {
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="relative group text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent hover:from-secondary hover:via-primary hover:to-accent theme-transition-fast gpu-accelerated"
               >
                 {personalInfo.name.initials}
@@ -76,8 +76,8 @@ export function Navigation() {
                 transition={{ duration: 0.2 }}
                 className={cn(
                   'relative px-4 py-2 text-sm font-medium theme-transition-fast rounded-lg group gpu-accelerated',
-                  activeSection === item.href 
-                    ? 'text-primary bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 shadow-sm' 
+                  activeSection === item.href
+                    ? 'text-primary bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 shadow-sm'
                     : 'text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-primary/5 hover:via-accent/5 hover:to-secondary/5'
                 )}
               >

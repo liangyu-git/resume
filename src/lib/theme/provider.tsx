@@ -12,8 +12,8 @@ import type { ThemeConfig } from './types'
 
 interface EnhancedThemeContextType {
   config: ThemeConfig
-   
-  updateConfig: (updates: Partial<ThemeConfig>) => void
+
+  updateConfig: (_updates: Partial<ThemeConfig>) => void
   resetConfig: () => void
 }
 
@@ -38,7 +38,7 @@ export function EnhancedThemeProvider({
   })
 
   const updateConfig = (updates: Partial<ThemeConfig>) => {
-    setConfig(prevConfig => getThemeConfig({ ...prevConfig, ...updates }))
+    setConfig((prevConfig) => getThemeConfig({ ...prevConfig, ...updates }))
   }
 
   const resetConfig = () => {
@@ -71,9 +71,7 @@ export function EnhancedThemeProvider({
       disableTransitionOnChange={config.performance.reducedMotion}
       {...themeProviderProps}
     >
-      <EnhancedThemeContext.Provider value={contextValue}>
-        {children}
-      </EnhancedThemeContext.Provider>
+      <EnhancedThemeContext.Provider value={contextValue}>{children}</EnhancedThemeContext.Provider>
     </NextThemeProvider>
   )
 }
@@ -83,11 +81,11 @@ export function EnhancedThemeProvider({
  */
 export function useThemeConfig() {
   const context = useContext(EnhancedThemeContext)
-  
+
   if (context === undefined) {
     throw new Error('useThemeConfig must be used within an EnhancedThemeProvider')
   }
-  
+
   return context
 }
 

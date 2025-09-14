@@ -5,20 +5,9 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { useTheme } from 'next-themes'
-import { 
-  ANIMATION_TIMINGS, 
-  PERFORMANCE_DEFAULTS,
-} from './constants'
-import { 
-  prefersReducedMotion, 
-  debounce, 
-  getTransitionDuration 
-} from './utils'
-import type { 
-  ThemeTransitionState, 
-  ThemeTransitionEvent, 
-  ArcAnimationState 
-} from './types'
+import { ANIMATION_TIMINGS, PERFORMANCE_DEFAULTS } from './constants'
+import { prefersReducedMotion, debounce, getTransitionDuration } from './utils'
+import type { ThemeTransitionState, ThemeTransitionEvent, ArcAnimationState } from './types'
 
 /**
  * Hook for managing theme transitions with debouncing
@@ -28,20 +17,20 @@ export function useThemeTransition(debounceMs: number = PERFORMANCE_DEFAULTS.tra
   const [transitionState, setTransitionState] = useState<ThemeTransitionState>('idle')
   const [isTransitioning, setIsTransitioning] = useState(false)
   const transitionRef = useRef<NodeJS.Timeout | null>(null)
-  
+
   const startTransition = useCallback(() => {
     setTransitionState('transitioning')
     setIsTransitioning(true)
-    
+
     // Get transition duration based on user preferences
     const reducedMotion = prefersReducedMotion()
     const duration = getTransitionDuration(ANIMATION_TIMINGS.toggle.duration, reducedMotion)
-    
+
     // Clear any existing transition
     if (transitionRef.current) {
       clearTimeout(transitionRef.current)
     }
-    
+
     // Set completion timeout
     transitionRef.current = setTimeout(() => {
       setTransitionState('complete')
@@ -49,11 +38,11 @@ export function useThemeTransition(debounceMs: number = PERFORMANCE_DEFAULTS.tra
       transitionRef.current = null
     }, duration)
   }, [])
-  
+
   const toggleTheme = useCallback(
     debounce(() => {
       const newTheme = theme === 'dark' ? 'light' : 'dark'
-      
+
       // Emit transition event
       const event: ThemeTransitionEvent = {
         from: theme as 'light' | 'dark',
@@ -61,18 +50,18 @@ export function useThemeTransition(debounceMs: number = PERFORMANCE_DEFAULTS.tra
         timestamp: Date.now(),
         duration: ANIMATION_TIMINGS.toggle.duration,
       }
-      
+
       // Dispatch custom event
       if (typeof window !== 'undefined') {
         window.dispatchEvent(new CustomEvent('theme-transition', { detail: event }))
       }
-      
+
       startTransition()
       setTheme(newTheme)
     }, debounceMs),
     [theme, setTheme, startTransition, debounceMs]
   )
-  
+
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -81,7 +70,7 @@ export function useThemeTransition(debounceMs: number = PERFORMANCE_DEFAULTS.tra
       }
     }
   }, [])
-  
+
   return {
     theme,
     toggleTheme,
@@ -99,34 +88,34 @@ export function useArcAnimation() {
     direction: 'sunrise',
     progress: 0,
   })
-  
+
   const animationFrameRef = useRef<number | null>(null)
   const startTimeRef = useRef<number | null>(null)
-  
+
   const startAnimation = useCallback((direction: 'sunrise' | 'sunset') => {
     setArcState({
       isAnimating: true,
       direction,
       progress: 0,
     })
-    
+
     startTimeRef.current = performance.now()
-    
+
     const animate = (currentTime: number) => {
       if (!startTimeRef.current) return
-      
+
       const elapsed = currentTime - startTimeRef.current
       const progress = Math.min(elapsed / ANIMATION_TIMINGS.arc.duration, 1)
-      
-      setArcState(prev => ({
+
+      setArcState((prev) => ({
         ...prev,
         progress,
       }))
-      
+
       if (progress < 1) {
         animationFrameRef.current = requestAnimationFrame(animate)
       } else {
-        setArcState(prev => ({
+        setArcState((prev) => ({
           ...prev,
           isAnimating: false,
           progress: 1,
@@ -134,16 +123,16 @@ export function useArcAnimation() {
         startTimeRef.current = null
       }
     }
-    
+
     animationFrameRef.current = requestAnimationFrame(animate)
   }, [])
-  
+
   const stopAnimation = useCallback(() => {
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current)
       animationFrameRef.current = null
     }
-    
+
     setArcState({
       isAnimating: false,
       direction: 'sunrise',
@@ -151,7 +140,7 @@ export function useArcAnimation() {
     })
     startTimeRef.current = null
   }, [])
-  
+
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -160,7 +149,7 @@ export function useArcAnimation() {
       }
     }
   }, [])
-  
+
   return {
     arcState,
     startAnimation,
@@ -174,12 +163,12 @@ export function useArcAnimation() {
 export function useThemeColors() {
   const { theme } = useTheme()
   const [colors, setColors] = useState<Record<string, string>>({})
-  
+
   useEffect(() => {
     if (typeof window === 'undefined') return
-    
+
     const computedStyle = getComputedStyle(document.documentElement)
-    
+
     const colorVars = [
       'primary',
       'secondary',
@@ -192,19 +181,19 @@ export function useThemeColors() {
       'foreground',
       'border',
     ]
-    
+
     const newColors: Record<string, string> = {}
-    
-    colorVars.forEach(varName => {
+
+    colorVars.forEach((varName) => {
       const value = computedStyle.getPropertyValue(`--${varName}`).trim()
       if (value) {
         newColors[varName] = `hsl(${value})`
       }
     })
-    
+
     setColors(newColors)
   }, [theme])
-  
+
   return colors
 }
 
@@ -215,7 +204,7 @@ export function useThemeColors() {
 export function useThemeChange(callback: (theme: string) => void) {
   const { theme } = useTheme()
   const previousThemeRef = useRef(theme)
-  
+
   useEffect(() => {
     if (theme && theme !== previousThemeRef.current) {
       callback(theme)
@@ -231,29 +220,35 @@ export function useAtmosphericEffects() {
   const { theme } = useTheme()
   const [isVisible, setIsVisible] = useState(true)
   const [effectsEnabled, setEffectsEnabled] = useState(true)
-  
+
   useEffect(() => {
     const reducedMotion = prefersReducedMotion()
     setEffectsEnabled(!reducedMotion)
   }, [])
-  
+
   useEffect(() => {
     // Listen for theme transition events
     const handleTransition = (event: CustomEvent<ThemeTransitionEvent>) => {
       setIsVisible(false)
-      
+
       setTimeout(() => {
         setIsVisible(true)
       }, event.detail.duration * 0.5)
     }
-    
-    window.addEventListener('theme-transition' as keyof WindowEventMap, handleTransition as EventListener)
-    
+
+    window.addEventListener(
+      'theme-transition' as keyof WindowEventMap,
+      handleTransition as EventListener
+    )
+
     return () => {
-      window.removeEventListener('theme-transition' as keyof WindowEventMap, handleTransition as EventListener)
+      window.removeEventListener(
+        'theme-transition' as keyof WindowEventMap,
+        handleTransition as EventListener
+      )
     }
   }, [])
-  
+
   return {
     theme,
     isVisible,
@@ -270,34 +265,34 @@ export function useThemePerformance() {
     transitionTime: 0,
     lastTransition: null as Date | null,
   })
-  
+
   useEffect(() => {
     let frameCount = 0
     let lastTime = performance.now()
     let rafId: number
-    
+
     const measureFPS = (currentTime: number) => {
       frameCount++
-      
+
       if (currentTime >= lastTime + 1000) {
-        setMetrics(prev => ({
+        setMetrics((prev) => ({
           ...prev,
           fps: Math.round((frameCount * 1000) / (currentTime - lastTime)),
         }))
-        
+
         frameCount = 0
         lastTime = currentTime
       }
-      
+
       rafId = requestAnimationFrame(measureFPS)
     }
-    
+
     rafId = requestAnimationFrame(measureFPS)
-    
+
     return () => {
       cancelAnimationFrame(rafId)
     }
   }, [])
-  
+
   return metrics
 }
